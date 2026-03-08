@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WORKS — Art &amp; Illustration</title>
+  <meta name="description" content="Art &amp; Illustration Portfolio" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:ital@0;1&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <a href="#" class="site-logo" aria-label="トップへ" onclick="switchPage('works'); return false;">
+      <span class="logo-main">ARCHIVE</span>
+      <span class="logo-sub">Art &amp; Illustration</span>
+    </a>
+    <nav class="page-nav" role="navigation" aria-label="ページ切り替え">
+      <button class="page-btn active" data-page="works" onclick="switchPage('works')">WORKS</button>
+      <button class="page-btn" data-page="note" onclick="switchPage('note')">NOTE</button>
+      <button class="page-btn" data-page="video" onclick="switchPage('video')">VIDEO</button>
+    </nav>
+    <div class="header-count">
+      <span id="workCount">0</span><span class="count-label"> works</span>
+    </div>
+  </header>
+
+  <section class="about-section" aria-label="サイト説明">
+    <p class="about-text">
+      日常にあるものが、静かに変質していく。<br>
+      家電、植物、生活用品——見慣れたものの内側に、<br>
+      生体機械としての構造を見出し、異形として記録している。<br>
+      <span class="about-sub">Biomechanical mutation of everyday objects. Tinged with horror.</span>
+    </p>
+  </section>
+
+  <div id="page-works" class="page-content active">
+    <div class="filter-bar">
+      <nav class="filter-nav" role="navigation" aria-label="カテゴリフィルター">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="illustration" aria-pressed="false">Illustration</button>
+        <button class="filter-btn" data-filter="digital" aria-pressed="false">Digital</button>
+        <button class="filter-btn" data-filter="concept" aria-pressed="false">Concept</button>
+        <button class="filter-btn" data-filter="mixed" aria-pressed="false">Mixed Media</button>
+      </nav>
+    </div>
+    <main role="main">
+      <section class="gallery-section" aria-label="作品一覧">
+        <div class="gallery-grid" id="galleryGrid" role="list"></div>
+        <p class="no-results" id="noResults" aria-live="polite" hidden>— No works found —</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="page-note" class="page-content">
+    <section class="note-section" aria-label="最新記事">
+      <div class="note-inner">
+        <h2 class="note-heading">
+          <span>LATEST LOG</span>
+          <a class="note-all-link" href="https://note.com/swi0801/m/md9fde77c22b2" target="_blank" rel="noopener noreferrer">マガジンを見る ↗</a>
+        </h2>
+        <div class="note-cards">
+          <a class="note-card" href="https://note.com/swi0801/n/nb4054b787398" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">domestic × mutation</span>
+            <h3 class="note-card-title">グングニル：必中の槍じゃない、<br>"因果を抜く器官"だ</h3>
+            <p class="note-card-excerpt">刺さる理由を、こちらの身体から先に作られる——必中とは、狙いが正しいという意味じゃない。</p>
+            <span class="note-card-date">2026.03.04</span>
+          </a>
+          <a class="note-card" href="https://note.com/swi0801/n/na30e81d6bcf2" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">plants × machine</span>
+            <h3 class="note-card-title">生活侵食｜アロカシア・アマゾニカ<br>"白脈が幹線になる葉"</h3>
+            <p class="note-card-excerpt">怖いのは枯れることじゃない。"元気そう"のまま、伸びる意味だけが奪われることだ。</p>
+            <span class="note-card-date">2026.03.04</span>
+          </a>
+          <a class="note-card" href="https://note.com/swi0801/n/ndb2084390e46" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">domestic × mutation</span>
+            <h3 class="note-card-title">代償の生体カメラ｜<br>オーディンの片目</h3>
+            <p class="note-card-excerpt">知りたいと願った人間の側が、進んで「見られる仕組み」を欲しがることだ。</p>
+            <span class="note-card-date">2026.03.01</span>
+          </a>
+          <a class="note-card" href="https://note.com/swi0801/n/nda92ca0d929b" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">plants × machine</span>
+            <h3 class="note-card-title">生活侵食｜ポトス<br>"壁を這うケーブル蔓"</h3>
+            <p class="note-card-excerpt">育てているつもりの植物が、部屋そのものを配線し直していくことだ。</p>
+            <span class="note-card-date">2026.03.01</span>
+          </a>
+          <a class="note-card" href="https://note.com/swi0801/n/n37eb5b3cf9e4" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">domestic × mutation</span>
+            <h3 class="note-card-title">髪を剥ぐ熱風の肺｜<br>生活侵食｜ドライヤー</h3>
+            <p class="note-card-excerpt">ドライヤーは「髪を乾かす道具」じゃない。洗面台に横たわる"熱風の肺"だ。</p>
+            <span class="note-card-date">2026.02.23</span>
+          </a>
+          <a class="note-card" href="https://note.com/swi0801/n/nb630e44f4c93" target="_blank" rel="noopener noreferrer">
+            <span class="note-card-tag">domestic × mutation</span>
+            <h3 class="note-card-title">口内を掘る虫｜<br>生活侵食｜電動歯ブラシ</h3>
+            <p class="note-card-excerpt">電動歯ブラシは「歯を磨く道具」じゃない。口内を掘り続ける虫だ。</p>
+            <span class="note-card-date">2026.02.22</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="page-video" class="page-content">
+    <section class="video-section" aria-label="動画一覧">
+      <div class="video-inner">
+        <h2 class="note-heading"><span>VIDEO WORKS</span></h2>
+        <div class="video-grid">
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/5tT4i1C7HBw" title="Video 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/luo7KuvO2hA" title="Video 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/0l17aXi3ANc" title="Video 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/HfEaeDyOpQk" title="Video 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/LgcePuB65yo" title="Video 05" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/csamRJcqNTA" title="Video 06" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card"><div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/Oh1Wy4QB10w" title="Video 07" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card video-card--short"><div class="video-wrap video-wrap--short">
+            <iframe src="https://www.youtube.com/embed/cPkhfdDq3tQ" title="Shorts 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+          <div class="video-card video-card--short"><div class="video-wrap video-wrap--short">
+            <iframe src="https://www.youtube.com/embed/boaqbNfcMFg" title="Shorts 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <span class="footer-copy">© 2025</span>
+    <span class="footer-sep" aria-hidden="true">/</span>
+    <span class="footer-label">Selected Works</span>
+  </footer>
+
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" tabindex="-1">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose" aria-label="閉じる (Esc)">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </button>
+      <div class="modal-media" id="modalMedia"></div>
+      <aside class="modal-info" aria-label="作品詳細">
+        <div class="modal-tag-row" id="modalTagRow"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description" id="modalDescription"></p>
+        <dl class="modal-dl" id="modalDl"></dl>
+        <a class="modal-link" id="modalLink" target="_blank" rel="noopener noreferrer" hidden>
+          View Project <span aria-hidden="true">↗</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function switchPage(page) {
+      document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      document.querySelectorAll('.page-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.page === page);
+      });
+      document.querySelector('.header-count').style.display = page === 'works' ? '' : 'none';
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
