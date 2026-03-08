@@ -169,26 +169,6 @@
 
   <script src="app.js"></script>
   <script>
-  // NOTE自動取得
- fetch('https://api.rss2json.com/v1/api.json?rss_url=https://note.com/swi0801/rss')
-    .then(r => r.json())
-    .then(data => {
-      const container = document.querySelector('.note-cards');
-      container.innerHTML = '';
-      data.items.slice(0, 6).forEach(item => {
-        const date = new Date(item.pubDate).toLocaleDateString('ja-JP', {year:'numeric',month:'2-digit',day:'2-digit'}).replace(/\//g,'.');
-        container.innerHTML += `
-          <a class="note-card" href="${item.link}" target="_blank" rel="noopener noreferrer">
-            <span class="note-card-tag">Domestic Mutation</span>
-            <h3 class="note-card-title">${item.title}</h3>
-            <p class="note-card-excerpt">${item.description.replace(/<[^>]*>/g,'').slice(0,60)}…</p>
-            <span class="note-card-date">${date}</span>
-          </a>`;
-      });
-    })
-    .catch(() => {}); // 失敗時は既存カードをそのまま表示
-</script>
-  <script>
     function switchPage(page) {
       document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
       document.getElementById('page-' + page).classList.add('active');
@@ -201,3 +181,5 @@
   </script>
 </body>
 </html>
+```
+
