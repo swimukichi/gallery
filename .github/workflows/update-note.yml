@@ -1,0 +1,64 @@
+name: Update Note Articles
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 毎日午前9時（JST）に実行
+  workflow_dispatch:      # 手動実行も可能
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update note cards
+        run: |
+          python3 << 'EOF'
+          import re, urllib.request, json
+
+          URLS = [
+            "https://note.com/swi0801/n/nb4054b787398",
+            "https://note.com/swi0801/n/na30e81d6bcf2",
+            "https://note.com/swi0801/n/ndb2084390e46",
+            "https://note.com/swi0801/n/nda92ca0d929b",
+            "https://note.com/swi0801/n/n37eb5b3cf9e4",
+            "https://note.com/swi0801/n/nb630e44f4c93",
+          ]
+
+          cards = ""
+          for url in URLS:
+            try:
+              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+              html = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+              title = re.search(r'<title>(.*?)</title>', html)
+              title = title.group(1).replace("|note", "").strip() if title else "記事"
+              cards += f'''          <a class="note-card" href="{url}" target="_blank" rel="noopener noreferrer">
+              <span class="note-card-tag">domestic × mutation</span>
+              <h3 class="note-card-title">{title}</h3>
+              <span class="note-card-date"></span>
+            </a>\n'''
+            except:
+              pass
+
+          with open("index.html", "r", encoding="utf-8") as f:
+            content = f.read()
+
+          new_content = re.sub(
+            r'(<div class="note-cards">).*?(</div>)',
+            r'\1\n' + cards + r'        \2',
+            content, flags=re.DOTALL
+          )
+
+          with open("index.html", "w", encoding="utf-8") as f:
+            f.write(new_content)
+
+          print("Done!")
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "auto: update note cards"
+          git push
