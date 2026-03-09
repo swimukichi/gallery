@@ -22,18 +22,25 @@
       <button class="page-btn" data-page="note" onclick="switchPage('note')">NOTE</button>
       <button class="page-btn" data-page="video" onclick="switchPage('video')">VIDEO</button>
     </nav>
-    <div class="header-count">
-      <span id="workCount">0</span><span class="count-label"> works</span>
-    </div>
+    <div class="header-right">
+  <div class="header-count">
+    <span id="workCount">0</span><span class="count-label"> works</span>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+  </div>
+</div>
   </header>
 
   <section class="about-section" aria-label="サイト説明">
     <p class="about-text">
-      日常にあるものが、静かに変質していく。<br>
-      家電、植物、生活用品——見慣れたものの内側に、<br>
-      生体機械としての構造を見出し、異形として記録している。<br>
-      <span class="about-sub">Biomechanical mutation of everyday objects. Tinged with horror.</span>
-    </p>
+  <span class="about-text-line">日常にあるものが、静かに変質していく。</span><br>
+  <span class="about-text-line">家電、植物、生活用品——見慣れたものの内側に、</span><br>
+  <span class="about-text-line">生体機械としての構造を見出し、異形として記録している。</span><br>
+  <span class="about-sub">Biomechanical mutation of everyday objects. Tinged with horror.</span>
+</p>
   </section>
 
   <div id="page-works" class="page-content active">

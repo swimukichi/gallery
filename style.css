@@ -716,3 +716,14 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .video-wrap--short {
   aspect-ratio: 9 / 16;
 }
+.header-right { display: flex; align-items: center; gap: 1.2rem; }
+.lang-switcher { display: flex; gap: 0.4rem; }
+.lang-btn {
+  background: none; border: 1px solid rgba(200,169,110,0.3);
+  color: rgba(200,169,110,0.5); font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.08em; padding: 0.25rem 0.5rem;
+  cursor: pointer; transition: all 0.2s;
+}
+.lang-btn:hover, .lang-btn.active {
+  border-color: #c8a96e; color: #c8a96e;
+}
