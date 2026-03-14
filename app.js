@@ -156,7 +156,19 @@ const works = [
   { id:"w155", title:"Work 155", category:"illustration", aspectRatio:"3/4", image:"images/hf_20260223_101931_e79d8e7e-8a17-4da8-8c77-868982ec3b4a.webp", tags:[], description:"", link:"" },
   { id:"w156", title:"Work 156", category:"digital", aspectRatio:"1/1", image:"images/hf_20260223_101952_4261d9b9-671e-4c95-90a8-07a83d6e427a.webp", tags:[], description:"", link:"" },
   { id:"w157", title:"Work 157", category:"concept", aspectRatio:"4/5", image:"images/hf_20260223_102010_f10c7b39-8c09-4b53-8b77-ddcf0b869901.webp", tags:[], description:"", link:"" },
+{ id:"w158", title:"Work 158", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110311_d743c05c-adf9-4226-a409-efd051384b75.webp", tags:[], description:"", link:"" },
+  { id:"w159", title:"Work 159", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234522_42a9c10a-251e-4c3e-8a77-71e7fa5e4e09.webp", tags:[], description:"", link:"" },
+  { id:"w160", title:"Work 160", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234544_9c5fbd21-8933-496e-9eeb-a7016b1ade6b.webp", tags:[], description:"", link:"" },
+  { id:"w161", title:"Work 161", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234605_3dbb9150-fe5d-4d1b-a1c6-28372da3502c.webp", tags:[], description:"", link:"" },
+  { id:"w162", title:"Work 162", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110249_7e99b095-0841-4158-8f1a-c07c91e12443_jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w163", title:"Work 163", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110209_8ec901b8-4809-404c-b42b-143f117d304d_jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w164", title:"Work 164", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110227_43d478cb-3f22-434a-9dbf-edf86b44db7f_jpeg.webp", tags:[], description:"", link:"" },
 ];
+
+works.sort((a, b) => {
+  const date = img => (img.match(/hf_(\d{8}_\d{6})/) || ['',''])[1];
+  return date(b.image).localeCompare(date(a.image));
+});
 
 /* =============================================
    DOM 参照
@@ -377,6 +389,72 @@ function setLang(lang) {
     aboutTexts[1].textContent = t.about2;
     aboutTexts[2].textContent = t.about3;
   }
+  const aboutSub = document.querySelector('.about-sub');
+  if (aboutSub) aboutSub.textContent = t.aboutSub;
+  document.querySelector('[data-page="works"]').textContent = t.works;
+  document.querySelector('[data-page="note"]').textContent = t.note;
+  document.querySelector('[data-page="video"]').textContent = t.video;
+  document.querySelector('.count-label').textContent = t.worksLabel;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    const map = { all: t.all, illustration: t.illustration, digital: t.digital, concept: t.concept, mixed: t.mixed };
+    if (map[b.dataset.filter]) b.textContent = map[b.dataset.filter];
+  });
+  const noteHeading = document.querySelector('.note-heading span');
+  if (noteHeading) noteHeading.textContent = t.latestLog;
+  const magazineLink = document.querySelector('.note-all-link');
+  if (magazineLink) magazineLink.textContent = t.magazineLink;
+  const videoHeading = document.querySelector('#page-video .note-heading span');
+  if (videoHeading) videoHeading.textContent = t.videoWorks;
+}
+const i18n = {
+  ja: {
+    logoSub: 'Art & Illustration',
+    about1: '日常にあるものが、静かに変質していく。',
+    about2: '家電、植物、生活用品——見慣れたものの内側に、',
+    about3: '生体機械としての構造を見出し、異形として記録している。',
+    aboutSub: 'Biomechanical mutation of everyday objects. Tinged with horror.',
+    works: 'WORKS', note: 'NOTE', video: 'VIDEO',
+    worksLabel: ' works',
+    all: 'All', illustration: 'Illustration', digital: 'Digital',
+    concept: 'Concept', mixed: 'Mixed Media',
+    latestLog: 'LATEST LOG', magazineLink: 'マガジンを見る ↗',
+    videoWorks: 'VIDEO WORKS',
+  },
+  en: {
+    logoSub: 'Art & Illustration',
+    about1: 'Everyday objects quietly mutate.',
+    about2: 'Appliances, plants, household items——',
+    about3: 'I find biomechanical structures within the familiar, and record them as aberrations.',
+    aboutSub: 'Biomechanical mutation of everyday objects. Tinged with horror.',
+    works: 'WORKS', note: 'NOTE', video: 'VIDEO',
+    worksLabel: ' works',
+    all: 'All', illustration: 'Illustration', digital: 'Digital',
+    concept: 'Concept', mixed: 'Mixed Media',
+    latestLog: 'LATEST LOG', magazineLink: 'View Magazine ↗',
+    videoWorks: 'VIDEO WORKS',
+  },
+  zh: {
+    logoSub: '艺术 & 插画',
+    about1: '日常之物，悄然异变。',
+    about2: '家电、植物、生活用品——',
+    about3: '在熟悉之物的内部，发现生体机械的构造，以异形之姿记录。',
+    aboutSub: '日常之物的生体机械异变。带有恐惧色彩。',
+    works: '作品', note: '笔记', video: '影像',
+    worksLabel: ' 件',
+    all: '全部', illustration: '插画', digital: '数字',
+    concept: '概念', mixed: '综合媒材',
+    latestLog: '最新日志', magazineLink: '查看杂志 ↗',
+    videoWorks: '影像作品',
+  },
+};
+
+function setLang(lang) {
+  const t = i18n[lang];
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.querySelector('.logo-sub').textContent = t.logoSub;
+  document.querySelectorAll('.about-text-line').forEach((el, i) => {
+    el.textContent = [t.about1, t.about2, t.about3][i] || '';
+  });
   const aboutSub = document.querySelector('.about-sub');
   if (aboutSub) aboutSub.textContent = t.aboutSub;
   document.querySelector('[data-page="works"]').textContent = t.works;
