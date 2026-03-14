@@ -18,11 +18,11 @@ jobs:
 
           URLS = [
             "https://note.com/swi0801/n/n0d077d5bdb68",
-  "https://note.com/swi0801/n/n375a5539895d",
-  "https://note.com/swi0801/n/naa4002d0faa5",
-  "https://note.com/swi0801/n/n59cc7bf67399",
-  "https://note.com/swi0801/n/nb4054b787398",
-  "https://note.com/swi0801/n/na30e81d6bcf2",
+            "https://note.com/swi0801/n/n375a5539895d",
+            "https://note.com/swi0801/n/naa4002d0faa5",
+            "https://note.com/swi0801/n/n59cc7bf67399",
+            "https://note.com/swi0801/n/nb4054b787398",
+            "https://note.com/swi0801/n/na30e81d6bcf2",
           ]
 
           cards = ""
@@ -43,12 +43,11 @@ jobs:
           with open("index.html", "r", encoding="utf-8") as f:
             content = f.read()
 
-         start = content.find('<div class="note-cards">')
-end = content.find('</div>', start) + len('</div>')
-if start != -1 and end != -1:
-    new_content = content[:start] + '<div class="note-cards">\n' + cards + '        </div>' + content[end:]
-else:
-    new_content = content
+            start_marker = '<!-- NOTE_START -->'
+            end_marker = '<!-- NOTE_END -->'
+            start_idx = content.index(start_marker) + len(start_marker)
+            end_idx = content.index(end_marker)
+            new_content = content[:start_idx] + '\n' + cards + '\n        ' + content[end_idx:]
 
           with open("index.html", "w", encoding="utf-8") as f:
             f.write(new_content)
