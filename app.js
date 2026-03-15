@@ -156,15 +156,14 @@ const works = [
   { id:"w155", title:"Work 155", category:"illustration", aspectRatio:"3/4", image:"images/hf_20260223_101931_e79d8e7e-8a17-4da8-8c77-868982ec3b4a.webp", tags:[], description:"", link:"" },
   { id:"w156", title:"Work 156", category:"digital", aspectRatio:"1/1", image:"images/hf_20260223_101952_4261d9b9-671e-4c95-90a8-07a83d6e427a.webp", tags:[], description:"", link:"" },
   { id:"w157", title:"Work 157", category:"concept", aspectRatio:"4/5", image:"images/hf_20260223_102010_f10c7b39-8c09-4b53-8b77-ddcf0b869901.webp", tags:[], description:"", link:"" },
-{ id:"w158", title:"Work 158", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110311_d743c05c-adf9-4226-a409-efd051384b75.webp", tags:[], description:"", link:"" },
+{ id:"w158", title:"Work 158", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110311_d743c05c-adf9-4226-a409-efd051384b75.jpeg.webp", tags:[], description:"", link:"" },
   { id:"w159", title:"Work 159", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234522_42a9c10a-251e-4c3e-8a77-71e7fa5e4e09.webp", tags:[], description:"", link:"" },
   { id:"w160", title:"Work 160", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234544_9c5fbd21-8933-496e-9eeb-a7016b1ade6b.webp", tags:[], description:"", link:"" },
   { id:"w161", title:"Work 161", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260310_234605_3dbb9150-fe5d-4d1b-a1c6-28372da3502c.webp", tags:[], description:"", link:"" },
-  { id:"w162", title:"Work 162", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110249_7e99b095-0841-4158-8f1a-c07c91e12443_jpeg.webp", tags:[], description:"", link:"" },
-  { id:"w163", title:"Work 163", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110209_8ec901b8-4809-404c-b42b-143f117d304d_jpeg.webp", tags:[], description:"", link:"" },
-  { id:"w164", title:"Work 164", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110227_43d478cb-3f22-434a-9dbf-edf86b44db7f_jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w162", title:"Work 162", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110249_7e99b095-0841-4158-8f1a-c07c91e12443.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w163", title:"Work 163", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110209_8ec901b8-4809-404c-b42b-143f117d304d.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w164", title:"Work 164", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260311_110227_43d478cb-3f22-434a-9dbf-edf86b44db7f.jpeg.webp", tags:[], description:"", link:"" },
 ];
-
 works.sort((a, b) => {
   const date = img => (img.match(/hf_(\d{8}_\d{6})/) || ['',''])[1];
   return date(b.image).localeCompare(date(a.image));
