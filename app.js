@@ -168,7 +168,6 @@ works.sort((a, b) => {
   const date = img => (img.match(/hf_(\d{8}_\d{6})/) || ['',''])[1];
   return date(b.image).localeCompare(date(a.image));
 });
-
 /* =============================================
    DOM 参照
    ============================================= */
