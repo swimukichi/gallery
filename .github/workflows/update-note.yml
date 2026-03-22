@@ -23,7 +23,10 @@ jobs:
             "https://note.com/swi0801/n/n59cc7bf67399",
             "https://note.com/swi0801/n/nb4054b787398",
             "https://note.com/swi0801/n/na30e81d6bcf2",
-          ]
+            "https://note.com/swi0801/n/nf52f3910cf34",
+            "https://note.com/swi0801/n/n74fe14036406",
+            "https://note.com/swi0801/n/nf58d1651abd9",
+            ]
 
           cards = ""
           for url in URLS:
