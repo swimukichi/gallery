@@ -172,6 +172,12 @@ const works = [
   { id:"w171", title:"Work 171", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260321_105849_a840b109-3898-4a4c-8107-3658fff970f5.jpeg.webp", tags:[], description:"", link:"" },
   { id:"w172", title:"Work 172", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260321_111739_8b3113ad-d338-4432-a2a8-e5a86a34312e.webp", tags:[], description:"", link:"" },
   { id:"w173", title:"Work 173", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260321_111805_6ed82b1b-13e3-4a3d-a8fd-a7ded7eac2ad.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w174", title:"Work 174", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260318_123942_28ee0f56-8579-498a-b933-3d59ee46e4b1.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w175", title:"Work 175", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260318_124009_b0006a22-dc11-45bb-b837-48edb0c43834.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w176", title:"Work 176", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260318_124033_6f78ff0c-38a2-4aee-8097-d363c1411e7e.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w177", title:"Work 177", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260318_124106_22668af9-6c50-4598-aead-b0c439cdb6ec.jpeg.webp", tags:[], description:"", link:"" },
+  { id:"w178", title:"Work 178", category:"illustration", aspectRatio:"1/1",  image:"images/hf_20260319_004411_ad60a9f7-fd9f-46c3-9968-6d0daf18abae.webp", tags:[], description:"", link:"" },
+  { id:"w179", title:"Work 179", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260321_012305_1033969a-3f5c-45be-bed1-cd292d4044ef.jpeg.webp", tags:[], description:"", link:"" },
 ];
 works.sort((a, b) => {
   const date = img => (img.match(/hf_(\d{8}_\d{6})/) || ['',''])[1];
