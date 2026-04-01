@@ -329,6 +329,15 @@ function buildCard(work, index) {
       <span class="card-plus">+</span>
     </div>`;
 
+  const cardMedia = el.querySelector('.card-media');
+  if (cardMedia) {
+    const overlay = document.createElement('div');
+    overlay.className = 'card-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = `<span class="card-overlay-title">${work.title}</span>${work.description ? `<span class="card-overlay-desc">${work.description}</span>` : ''}`;
+    cardMedia.appendChild(overlay);
+  }
+
   const open = () => openModal(work, el);
   el.addEventListener('click', open);
   el.addEventListener('keydown', e => {

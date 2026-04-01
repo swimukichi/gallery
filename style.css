@@ -269,6 +269,46 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   transform: translateY(0);
 }
 
+/* Card hover overlay */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+  z-index: 3;
+  pointer-events: none;
+}
+.work-card:hover .card-overlay,
+.work-card:focus-visible .card-overlay {
+  opacity: 1;
+}
+.card-overlay-title {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,242,238,0.75);
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5;
+}
+.card-overlay-desc {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+
 /* No results */
 .no-results {
   text-align: center;
