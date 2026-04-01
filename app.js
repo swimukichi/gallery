@@ -235,10 +235,34 @@ const works = [
   { id:"w254", title:"Work 254", category:"illustration", aspectRatio:"1/1",  image:"images/hf_20260331_233249_b61526a2-57cd-4c12-a017-7930dd4f4b8e.webp", tags:[], description:"", link:"" },
   { id:"w255", title:"Work 255", category:"illustration", aspectRatio:"1/1",  image:"images/hf_20260331_233317_0d679e3b-a5ca-49f0-8475-a87310b1e3b6.webp", tags:[], description:"", link:"" },
   { id:"w256", title:"Work 256", category:"illustration", aspectRatio:"1/1",  image:"images/hf_20260401_010551_2be3365f-b99a-4e75-ba1b-e72dac58db5a.webp", tags:[], description:"", link:"" },
+  { id:"w257", title:"Work 257", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260309%20025641%20C2ba1331-Ed18-4107-B849-8B04b6019a59.mp4", tags:[], description:"", link:"" },
+  { id:"w258", title:"Work 258", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260309%20031100%2096159Da7-7Ee8-4D73-A2e4-C412fd127096.mp4", tags:[], description:"", link:"" },
+  { id:"w259", title:"Work 259", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260315%20045226%201390F80d-94E1-46A7-8Bb9-2Cacbd0496f6.mp4", tags:[], description:"", link:"" },
+  { id:"w260", title:"Work 260", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260315%20063528%20C1d8d360-3Db7-44F1-8Ac6-90Bb50ac4ad7.mp4", tags:[], description:"", link:"" },
+  { id:"w261", title:"Work 261", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260317%20025515%207402B4c4-C252-4Bef-8834-497Eb42552eb.mp4", tags:[], description:"", link:"" },
+  { id:"w262", title:"Work 262", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260317%20134305%20A748f81e-52Fb-49Fc-83C2-D1fff647a1e7.mp4", tags:[], description:"", link:"" },
+  { id:"w263", title:"Work 263", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260317%20221648%20B6cbfd07-8D36-4318-84E5-4E6fbbbf120d.mp4", tags:[], description:"", link:"" },
+  { id:"w264", title:"Work 264", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260317%20221719%20013D850e-0094-4797-A14d-032121B28c80.mp4", tags:[], description:"", link:"" },
+  { id:"w265", title:"Work 265", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260321%20050736%209F3293bf-F618-4Da0-9404-Aa3f7f155eeb.mp4", tags:[], description:"", link:"" },
+  { id:"w266", title:"Work 266", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260321%20122832%209D8fbcbf-1C70-4D28-96A8-7F298f58ea1d.mp4", tags:[], description:"", link:"" },
+  { id:"w267", title:"Work 267", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260323%20033446%20632A574d-48A7-469D-8300-6A0a57b8ffb0.mp4", tags:[], description:"", link:"" },
+  { id:"w268", title:"Work 268", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260323%20084237%208Ce9cf90-Ad67-4F2d-A214-77A8ac03ffcb.mp4", tags:[], description:"", link:"" },
+  { id:"w269", title:"Work 269", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260324%20104000%20D53cbae1-6986-45Fd-92Ed-3Aa9ba557989.mp4", tags:[], description:"", link:"" },
+  { id:"w270", title:"Work 270", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260326%20024222%200565A8cc-068E-4027-B2f1-3E71b468b266.mp4", tags:[], description:"", link:"" },
+  { id:"w271", title:"Work 271", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260328%20062010%202Ac39e3e-4C54-40Da-9946-70C6d90693e4.mp4", tags:[], description:"", link:"" },
+  { id:"w272", title:"Work 272", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260328%20063500%20C85aac1a-Cf21-473C-8Ce6-603F74fb955e.mp4", tags:[], description:"", link:"" },
+  { id:"w273", title:"Work 273", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260329%20073746%2036345Fe9-Dfb0-4C62-Ac57-6442B57011e5.mp4", tags:[], description:"", link:"" },
+  { id:"w274", title:"Work 274", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260330%20110629%20606Eea58-7061-46B1-9Ec2-F43347fea5e1.mp4", tags:[], description:"", link:"" },
+  { id:"w275", title:"Work 275", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20013213%20Dbc167e1-47F6-412E-Bcc1-4B6020117292.mp4", tags:[], description:"", link:"" },
+  { id:"w276", title:"Work 276", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20064056%20149Fa77d-973C-45F2-8Ad6-814501D55bae.mp4", tags:[], description:"", link:"" },
+  { id:"w277", title:"Work 277", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20092600%20B7fe5512-048E-493B-A719-6A181e62c546.mp4", tags:[], description:"", link:"" },
 ];
 works.sort((a, b) => {
-  const date = img => (img.match(/hf_(\d{8}_\d{6})/) || ['',''])[1];
-  return date(b.image).localeCompare(date(a.image));
+  const date = w => {
+    const src = w.image || w.video || '';
+    return (src.match(/(\d{8})[_ ](\d{6})/i) || ['','',''])[1] + (src.match(/(\d{8})[_ ](\d{6})/i) || ['','',''])[2];
+  };
+  return date(b).localeCompare(date(a));
 });
 /* =============================================
    DOM 参照
@@ -280,6 +304,12 @@ function buildCard(work, index) {
     const fallback = `https://img.youtube.com/vi/${work.youtube}/hqdefault.jpg`;
     mediaHTML = `<div class="card-media thumb-wrap" style="aspect-ratio:${ratio}">
       <img src="${thumb}" alt="${work.title}" loading="lazy" onerror="this.src='${fallback}'">
+      <div class="play-badge" aria-hidden="true"><div class="play-badge-inner">
+        <svg viewBox="0 0 16 16"><polygon points="3,1 15,8 3,15"/></svg>
+      </div></div></div>`;
+  } else if (work.video) {
+    mediaHTML = `<div class="card-media thumb-wrap" style="aspect-ratio:${ratio}">
+      <video src="${work.video}" muted playsinline preload="metadata" class="card-video-thumb"></video>
       <div class="play-badge" aria-hidden="true"><div class="play-badge-inner">
         <svg viewBox="0 0 16 16"><polygon points="3,1 15,8 3,15"/></svg>
       </div></div></div>`;
@@ -344,6 +374,8 @@ function openModal(work, trigger) {
     mediaEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${work.youtube}?autoplay=1&mute=1&rel=0"
       title="${work.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>`;
+  } else if (work.video) {
+    mediaEl.innerHTML = `<video src="${work.video}" controls autoplay muted playsinline></video>`;
   } else if (work.image) {
     mediaEl.innerHTML = `<img src="${work.image}" alt="${work.title}">`;
   } else {
