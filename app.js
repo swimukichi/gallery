@@ -508,3 +508,72 @@ function setLang(lang) {
   const videoHeading = document.querySelector('#page-video .note-heading span');
   if (videoHeading) videoHeading.textContent = t.videoWorks;
 }
+
+/* =============================================
+   VIDEO TAB GALLERY
+   ============================================= */
+const videoFiles = [
+  'Videos/Hf%2020260309%20025641%20C2ba1331-Ed18-4107-B849-8B04b6019a59.mp4',
+  'Videos/Hf%2020260309%20031100%2096159Da7-7Ee8-4D73-A2e4-C412fd127096.mp4',
+  'Videos/Hf%2020260315%20045226%201390F80d-94E1-46A7-8Bb9-2Cacbd0496f6.mp4',
+  'Videos/Hf%2020260315%20063528%20C1d8d360-3Db7-44F1-8Ac6-90Bb50ac4ad7.mp4',
+  'Videos/Hf%2020260317%20025515%207402B4c4-C252-4Bef-8834-497Eb42552eb.mp4',
+  'Videos/Hf%2020260317%20134305%20A748f81e-52Fb-49Fc-83C2-D1fff647a1e7.mp4',
+  'Videos/Hf%2020260317%20221648%20B6cbfd07-8D36-4318-84E5-4E6fbbbf120d.mp4',
+  'Videos/Hf%2020260317%20221719%20013D850e-0094-4797-A14d-032121B28c80.mp4',
+  'Videos/Hf%2020260321%20050736%209F3293bf-F618-4Da0-9404-Aa3f7f155eeb.mp4',
+  'Videos/Hf%2020260321%20122832%209D8fbcbf-1C70-4D28-96A8-7F298f58ea1d.mp4',
+  'Videos/Hf%2020260323%20033446%20632A574d-48A7-469D-8300-6A0a57b8ffb0.mp4',
+  'Videos/Hf%2020260323%20084237%208Ce9cf90-Ad67-4F2d-A214-77A8ac03ffcb.mp4',
+  'Videos/Hf%2020260324%20104000%20D53cbae1-6986-45Fd-92Ed-3Aa9ba557989.mp4',
+  'Videos/Hf%2020260326%20024222%200565A8cc-068E-4027-B2f1-3E71b468b266.mp4',
+  'Videos/Hf%2020260328%20062010%202Ac39e3e-4C54-40Da-9946-70C6d90693e4.mp4',
+  'Videos/Hf%2020260328%20063500%20C85aac1a-Cf21-473C-8Ce6-603F74fb955e.mp4',
+  'Videos/Hf%2020260329%20073746%2036345Fe9-Dfb0-4C62-Ac57-6442B57011e5.mp4',
+  'Videos/Hf%2020260330%20110629%20606Eea58-7061-46B1-9Ec2-F43347fea5e1.mp4',
+  'Videos/Hf%2020260331%20013213%20Dbc167e1-47F6-412E-Bcc1-4B6020117292.mp4',
+  'Videos/Hf%2020260331%20064056%20149Fa77d-973C-45F2-8Ad6-814501D55bae.mp4',
+  'Videos/Hf%2020260331%20092600%20B7fe5512-048E-493B-A719-6A181e62c546.mp4',
+];
+
+(function buildVideoTab() {
+  const grid = document.getElementById('videoGrid');
+  if (!grid) return;
+  videoFiles.forEach(src => {
+    const card = document.createElement('div');
+    card.className = 'vgallery-card';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.innerHTML = `
+      <div class="vgallery-thumb">
+        <video src="${src}" muted playsinline preload="metadata"></video>
+        <div class="play-badge" aria-hidden="true"><div class="play-badge-inner">
+          <svg viewBox="0 0 16 16"><polygon points="3,1 15,8 3,15"/></svg>
+        </div></div>
+      </div>`;
+    card.addEventListener('click', () => openVModal(src));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVModal(src); } });
+    grid.appendChild(card);
+  });
+})();
+
+const vmodalOverlay = document.getElementById('vmodalOverlay');
+const vmodalClose   = document.getElementById('vmodalClose');
+const vmodalPlayer  = document.getElementById('vmodalPlayer');
+
+function openVModal(src) {
+  vmodalPlayer.src = src;
+  vmodalOverlay.setAttribute('aria-hidden', 'false');
+  vmodalOverlay.classList.add('is-open');
+  vmodalPlayer.play();
+  vmodalClose.focus();
+}
+function closeVModal() {
+  vmodalPlayer.pause();
+  vmodalPlayer.src = '';
+  vmodalOverlay.setAttribute('aria-hidden', 'true');
+  vmodalOverlay.classList.remove('is-open');
+}
+vmodalClose.addEventListener('click', closeVModal);
+vmodalOverlay.addEventListener('click', e => { if (e.target === vmodalOverlay) closeVModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && vmodalOverlay.classList.contains('is-open')) closeVModal(); });

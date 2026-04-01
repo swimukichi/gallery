@@ -694,41 +694,89 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .video-inner {
   max-width: 1400px;
 }
-.video-grid {
+/* Video gallery grid */
+.video-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
 }
-@media (max-width: 900px) {
-  .video-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1000px) {
+  .video-gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 560px) {
-  .video-grid { grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .video-gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.video-card {
+.vgallery-card {
+  cursor: pointer;
+  overflow: hidden;
   background: var(--dim);
+  position: relative;
+}
+.vgallery-card:focus-visible {
+  outline: 1px solid var(--gold);
+}
+.vgallery-thumb {
+  position: relative;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
 }
-.video-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-.video-wrap iframe {
-  position: absolute;
-  inset: 0;
+.vgallery-thumb video {
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease), filter 0.4s;
+  filter: brightness(0.88) saturate(0.8);
+}
+.vgallery-card:hover .vgallery-thumb video,
+.vgallery-card:focus-visible .vgallery-thumb video {
+  transform: scale(1.04);
+  filter: brightness(1) saturate(1);
+}
+.vgallery-card:hover .play-badge-inner,
+.vgallery-card:focus-visible .play-badge-inner {
+  border-color: rgba(245,242,238,0.8);
+  background: rgba(8,8,8,0.7);
 }
 
-/* Shorts（縦型）*/
-.video-card--short {
-  grid-row: span 1;
+/* Video modal */
+.vmodal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
 }
-.video-wrap--short {
-  aspect-ratio: 9 / 16;
+.vmodal-overlay.is-open {
+  display: flex;
+}
+.vmodal-overlay video {
+  max-width: min(90vw, 560px);
+  max-height: 90vh;
+  outline: none;
+}
+.vmodal-close {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: rgba(8,8,8,0.6);
+  border: 1px solid rgba(245,242,238,0.2);
+  color: var(--paper);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: border-color var(--dur), background var(--dur);
+}
+.vmodal-close:hover {
+  border-color: rgba(245,242,238,0.6);
+  background: rgba(8,8,8,0.85);
 }
 .header-right { display: flex; align-items: center; gap: 1.2rem; }
 .lang-switcher { display: flex; gap: 0.4rem; }

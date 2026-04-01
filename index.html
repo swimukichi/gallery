@@ -151,37 +151,19 @@
     <section class="video-section" aria-label="動画一覧">
       <div class="video-inner">
         <h2 class="note-heading"><span>VIDEO WORKS</span></h2>
-        <div class="video-grid">
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/5tT4i1C7HBw" title="Video 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/luo7KuvO2hA" title="Video 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/0l17aXi3ANc" title="Video 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/HfEaeDyOpQk" title="Video 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/LgcePuB65yo" title="Video 05" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/csamRJcqNTA" title="Video 06" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card"><div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/Oh1Wy4QB10w" title="Video 07" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card video-card--short"><div class="video-wrap video-wrap--short">
-            <iframe src="https://www.youtube.com/embed/cPkhfdDq3tQ" title="Shorts 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-          <div class="video-card video-card--short"><div class="video-wrap video-wrap--short">
-            <iframe src="https://www.youtube.com/embed/boaqbNfcMFg" title="Shorts 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div></div>
-        </div>
+        <div class="video-gallery-grid" id="videoGrid"></div>
       </div>
     </section>
+  </div>
+
+  <div class="vmodal-overlay" id="vmodalOverlay" aria-hidden="true">
+    <button class="vmodal-close" id="vmodalClose" aria-label="閉じる (Esc)">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" stroke-width="1.2"/>
+        <line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+    </button>
+    <video id="vmodalPlayer" controls playsinline></video>
   </div>
 
   <footer class="site-footer" role="contentinfo">
