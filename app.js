@@ -256,6 +256,10 @@ const works = [
   { id:"w275", title:"Work 275", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20013213%20Dbc167e1-47F6-412E-Bcc1-4B6020117292.mp4", tags:[], description:"", genre:"video", description_en:"", description_zh:"", link:"" },
   { id:"w276", title:"Work 276", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20064056%20149Fa77d-973C-45F2-8Ad6-814501D55bae.mp4", tags:[], description:"", genre:"video", description_en:"", description_zh:"", link:"" },
   { id:"w277", title:"Work 277", category:"digital",      aspectRatio:"9/16", video:"Videos/Hf%2020260331%20092600%20B7fe5512-048E-493B-A719-6A181e62c546.mp4", tags:[], description:"", genre:"video", description_en:"", description_zh:"", link:"" },
+  { id:"w278", title:"myth×biomechanical｜ケルベロスの三首", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260403_121541_83828594-8ced-4408-ae26-069e5bc20469.webp", noteUrl:"https://note.com/swi0801/n/nbaa50669ed9d" },
+  { id:"w279", title:"myth×biomechanical｜ケルベロスの三首", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260403_121605_d83f9288-bfb6-4a6a-b557-11911cfe768a.webp", noteUrl:"https://note.com/swi0801/n/nbaa50669ed9d" },
+  { id:"w280", title:"myth×biomechanical｜ケルベロスの三首", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260403_121625_3e1a6e4f-ca95-4c40-858d-fbf0ab563754.webp", noteUrl:"https://note.com/swi0801/n/nbaa50669ed9d" },
+  { id:"w281", title:"myth×biomechanical｜ケルベロスの三首", category:"illustration", aspectRatio:"16/9", image:"images/hf_20260403_121645_1a29bdb4-8f7a-4664-837a-41b7ccf6f5f4.webp", noteUrl:"https://note.com/swi0801/n/nbaa50669ed9d" },
 ];
 works.sort((a, b) => {
   const date = w => {
