@@ -417,6 +417,10 @@ function openModal(work, trigger) {
   if (work.link) { linkEl.href = work.link; linkEl.hidden = false; }
   else { linkEl.hidden = true; }
 
+  const noteLinkEl = document.getElementById('modalNoteLink');
+  if (work.noteUrl) { noteLinkEl.href = work.noteUrl; noteLinkEl.hidden = false; }
+  else { noteLinkEl.hidden = true; }
+
   modalOverlay.setAttribute('aria-hidden', 'false');
   modalOverlay.classList.add('is-open');
   document.body.style.overflow = 'hidden';

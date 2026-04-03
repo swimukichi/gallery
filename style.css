@@ -521,6 +521,22 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .modal-link:hover { opacity: 0.65; }
 .modal-link[hidden] { display: none; }
+.modal-note-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(200,169,110,0.4);
+  padding-bottom: 2px;
+  transition: opacity var(--dur);
+  margin-top: 8px;
+}
+.modal-note-link:hover { opacity: 0.65; }
+.modal-note-link[hidden] { display: none; }
 
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 900px) {
