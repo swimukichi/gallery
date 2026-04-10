@@ -154,7 +154,7 @@ function openModal(work) {
   const video  = isVideo(work);
   const src    = work.image || '';
   document.getElementById('modal-media').innerHTML = video
-    ? `<video class="w-full h-full object-contain" src="${src}" controls autoplay muted loop></video>`
+    ? `<video class="w-full h-full object-contain" src="${work.video}" controls autoplay muted loop></video>`
     : `<img class="w-full h-full object-contain" src="${src}" alt=""/>`;
 
   const archId = (work.id || '').toUpperCase().replace(/^W0*/, 'ARCH-');
