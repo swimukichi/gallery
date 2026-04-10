@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(icacls \"C:/Users/user/OneDrive/Desktop/gallery/.git/objects\" /grant \"%USERNAME%:\\(OI\\)\\(CI\\)F\" /T)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(node:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(grep -v \"^images$\\\\|^Videos$\\\\|^\\\\.git$\")"
+    ]
+  }
+}
