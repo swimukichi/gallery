@@ -16,8 +16,7 @@ function getDesc(work, lang) {
 
 /* ファイルパスから動画判定（Videosフォルダ or 拡張子） */
 function isVideo(work) {
-  const src = work.image || '';
-  return /\.(mp4|webm|mov)$/i.test(src) || src.toLowerCase().includes('video');
+  return !!(work.video && work.video !== '');
 }
 
 /* aspectRatioをCSSクラスに変換 */
@@ -51,7 +50,7 @@ function makeCard(work) {
   card.style.aspectRatio = ar.replace('/','/');
 
   const media = video
-    ? `<video class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${src}" muted loop playsinline></video>`
+    ? `<video class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${work.video}" muted loop playsinline></video>`
     : `<img class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${src}" alt="${title}"/>`;
 
   const noteStamp = (work.link && work.link !== '')
