@@ -158,6 +158,59 @@
   </div>
 </section>
 
+<section id="hero" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;">
+
+  <!-- 背景の大きな透かし文字 -->
+  <div style="position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Newsreader',serif;font-size:clamp(8rem,22vw,20rem);color:rgba(184,150,12,0.04);font-weight:700;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.05em;">ARCH</div>
+
+  <!-- 上部ライン -->
+  <div style="display:flex;gap:2rem;margin-bottom:4rem;font-family:'Space Grotesk',monospace;font-size:9px;letter-spacing:0.2em;color:#4a4535;text-transform:uppercase;">
+    <span>COORD: 35.6762° N, 139.6503° E</span>
+    <span>—</span>
+    <span id="hero-date"></span>
+    <span>—</span>
+    <span>STATUS: ACTIVE</span>
+  </div>
+
+  <!-- メインタイトル -->
+  <h1 style="font-family:'Newsreader',serif;font-size:clamp(3rem,10vw,9rem);font-weight:700;font-style:italic;line-height:0.9;letter-spacing:-0.03em;color:#e8e4dc;margin:0 0 2rem 0;">
+    NAO_<br/><span style="color:#b8960c;">BIO</span>MECHANICAL
+  </h1>
+
+  <!-- サブライン -->
+  <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:5rem;">
+    <div style="width:40px;height:1px;background:#b8960c;opacity:0.5;"></div>
+    <p style="font-family:'Space Grotesk',monospace;font-size:10px;letter-spacing:0.2em;color:#6b6352;text-transform:uppercase;">
+      Forensic Sanctum — Specimen Archive
+    </p>
+  </div>
+
+  <!-- 3カラムのデータ -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:640px;border-top:1px solid #1a1a1a;padding-top:2rem;">
+    <div>
+      <p style="font-family:'Space Grotesk',monospace;font-size:8px;letter-spacing:0.15em;color:#4a4535;text-transform:uppercase;margin-bottom:6px;">SERIES</p>
+      <p style="font-family:'Space Grotesk',monospace;font-size:10px;color:#b8960c;">MYTH × BIO</p>
+      <p style="font-family:'Space Grotesk',monospace;font-size:10px;color:#6b6352;">DOMESTIC × MUT</p>
+      <p style="font-family:'Space Grotesk',monospace;font-size:10px;color:#6b6352;">PLANTS × BIO</p>
+    </div>
+    <div>
+      <p style="font-family:'Space Grotesk',monospace;font-size:8px;letter-spacing:0.15em;color:#4a4535;text-transform:uppercase;margin-bottom:6px;">SPECIMENS</p>
+      <p style="font-family:'Space Grotesk',monospace;font-size:10px;color:#e8e4dc;" id="hero-count">—</p>
+    </div>
+    <div>
+      <p style="font-family:'Space Grotesk',monospace;font-size:8px;letter-spacing:0.15em;color:#4a4535;text-transform:uppercase;margin-bottom:6px;">ARCHIVE</p>
+      <a href="https://note.com/swi0801" target="_blank" style="font-family:'Space Grotesk',monospace;font-size:10px;color:#b8960c;text-decoration:none;display:block;">NOTE.COM ↗</a>
+    </div>
+  </div>
+
+  <!-- スクロール誘導 -->
+  <div style="position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;" onclick="document.getElementById('gallery-grid').scrollIntoView({behavior:'smooth'})">
+    <span style="font-family:'Space Grotesk',monospace;font-size:8px;letter-spacing:0.2em;color:#4a4535;text-transform:uppercase;">ENTER ARCHIVE</span>
+    <div style="width:1px;height:32px;background:linear-gradient(to bottom,#b8960c,transparent);"></div>
+  </div>
+
+</section>
+
 <!-- GALLERY -->
 <section class="px-6 md:px-8 py-20 bg-[#0e0e0e]">
   <!-- Mobile filter -->
@@ -424,6 +477,8 @@ document.getElementById('load-more-btn').addEventListener('click', () => {
 });
 
 /* Init */
+document.getElementById('hero-date').textContent = new Date().toISOString().slice(0,10).replace(/-/g,'.');
+document.getElementById('hero-count').textContent = (typeof works !== 'undefined' ? works.length : '—') + ' ENTRIES';
 renderGallery(true);
 </script>
 </body>
