@@ -307,7 +307,9 @@ function renderGallery(reset = true) {
     return w.genre === currentGenre;
   });
 
-  const slice = filtered.slice(0, currentPage * PAGE_SIZE);
+  const start = reset ? 0 : (currentPage - 1) * PAGE_SIZE;
+  const end = currentPage * PAGE_SIZE;
+  const slice = filtered.slice(start, end);
 
   let i = 0, rowIdx = 0;
   while (i < slice.length) {
