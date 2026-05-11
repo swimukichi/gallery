@@ -3930,5 +3930,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n74fe14036406"
+  },
+  {
+    "id": "w335",
+    "title": "《\n      生活侵食｜Calathea lancifolia（“脈動する配線葉” / Plant×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/calathea-lancifolia-plantbiomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf58d1651abd9"
   }
 ];
