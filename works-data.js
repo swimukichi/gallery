@@ -4281,5 +4281,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n7515bccfe8b7"
+  },
+  {
+    "id": "w362",
+    "title": "《単回起動秤（たんかいきどうばかり）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/単回起動秤-たんかいきどうばかり.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n4137f08932a1"
   }
 ];
