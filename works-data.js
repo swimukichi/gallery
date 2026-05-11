@@ -4294,5 +4294,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n4137f08932a1"
+  },
+  {
+    "id": "w363",
+    "title": "《地下巡回整備船（ちかじゅんかいせいびせん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/地下巡回整備船-ちかじゅんかいせいびせん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n041bf894af1b"
   }
 ];
