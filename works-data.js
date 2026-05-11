@@ -4489,5 +4489,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n2e9644f12d03"
+  },
+  {
+    "id": "w378",
+    "title": "《生体合成テンプレート（せいたいごうせいテンプレート）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/生体合成テンプレート-せいたいごうせいテンプレート.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf30b3869b357"
   }
 ];
