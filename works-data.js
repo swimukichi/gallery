@@ -3975,12 +3975,25 @@ const works = [
     "title": "《多性紡糸器》",
     "category": "illustration",
     "aspectRatio": "4/5",
-    "thumbnail": "images/.png",
+    "thumbnail": "images/多性紡糸器.png",
     "tags": [],
     "description": "",
     "genre": "myth",
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n4428ba10e0c9"
+  },
+  {
+    "id": "w339",
+    "title": "《沈黙する信号塔（ちんもく する しんごうとう）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/沈黙する信号塔-ちんもく-する-しんごうとう.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n59cc7bf67399"
   }
 ];

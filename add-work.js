@@ -60,12 +60,14 @@ function getNextId(works) {
 }
 
 function slugify(text) {
-  return String(text || '')
+  const result = String(text || '')
+    .trim()
     .toLowerCase()
     .replace(/[\s《》]/g, '-')
-    .replace(/[^a-z0-9_-]/g, '')
+    .replace(/[^a-z0-9\u3040-\u30ff\u4e00-\u9faf\u3400-\u4dbf\u3000-\u303f_-]/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
+  return result || `image-${Date.now()}`;
 }
 
 function computeAspectRatio(width, height) {
