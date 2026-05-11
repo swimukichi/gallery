@@ -3943,5 +3943,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf58d1651abd9"
+  },
+  {
+    "id": "w336",
+    "title": "《\n      生活侵食｜Monstera deliciosa（“空隙を持つ葉” / Plant×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/monstera-deliciosa-plantbiomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/ne2dc9e427ced"
   }
 ];
