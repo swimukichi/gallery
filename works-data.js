@@ -4424,5 +4424,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n2736d5bf5611"
+  },
+  {
+    "id": "w373",
+    "title": "《長期冷却記憶保存装置（ちょうきれいきゃくきおくほぞんそうち）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/長期冷却記憶保存装置-ちょうきれいきゃくきおくほぞんそうち.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf524a40fe5c5"
   }
 ];
