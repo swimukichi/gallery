@@ -4177,5 +4177,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n4ef3e54b0f4e"
+  },
+  {
+    "id": "w354",
+    "title": "《石化放射体（せっか ほうしゃたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/石化放射体-せっか-ほうしゃたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n6eccddbe4800"
   }
 ];
