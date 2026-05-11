@@ -38,7 +38,7 @@ const rowPatterns = [
 ──────────────────────────────── */
 function makeCard(work) {
   const video   = isVideo(work);
-  const src     = work.image || '';
+  const src     = work.thumbnail || '';
   const title   = work.title || '';
   const desc    = getDesc(work, currentLang);
   const archId  = (work.id || '').toUpperCase().replace(/^W0*/, 'ARCH-');
@@ -51,7 +51,15 @@ function makeCard(work) {
 
   const media = video
     ? `<video class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${work.video}" muted loop playsinline></video>`
-    : `<img class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${src}" alt="${title}"/>`;
+    : `<img class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="${src}" alt="${title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`;
+
+  const placeholder = video ? '' : `
+    <div class="absolute inset-0 flex items-center justify-center bg-[#201f1f] text-[#d0c5b2] text-sm font-label" style="display: none;">
+      <div class="text-center">
+        <div class="w-8 h-8 mx-auto mb-2 opacity-50">📷</div>
+        <div>Image not available</div>
+      </div>
+    </div>`;
 
   const noteStamp = (work.link && work.link !== '')
     ? `<a class="stamp mt-4" href="${work.link}" target="_blank" onclick="event.stopPropagation()">→ NOTE記事</a>`
@@ -63,6 +71,7 @@ function makeCard(work) {
 
   card.innerHTML = `
     ${media}
+    ${placeholder}
     ${videoBadge}
     <div class="absolute top-4 left-4 z-20 font-label text-[10px] text-[#e6c364] tracking-widest bg-[#0e0e0e]/80 px-2 py-1">${archId}</div>
     <div class="card-overlay">
@@ -126,7 +135,7 @@ function renderGallery(reset = true) {
 ──────────────────────────────── */
 function updateHero(work) {
   const img = document.getElementById('hero-img');
-  if (img && !isVideo(work)) img.src = work.image || '';
+  if (img && !isVideo(work)) img.src = work.thumbnail || '';
 
   const num = (work.id || 'w001').replace(/\D/g,'').padStart(3,'0');
   document.getElementById('hero-number').textContent = `No.${num}`;

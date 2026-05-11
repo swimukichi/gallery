@@ -1,0 +1,11 @@
+node_modules/
+
+# Ignore original source assets but keep placeholder files for empty directories
+_original/images/*
+_original/videos/*
+!_original/images/.gitkeep
+!_original/videos/.gitkeep
+
+# Ignore import source images
+_import/images/*
+!_import/images/.gitkeep
