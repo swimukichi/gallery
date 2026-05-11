@@ -4437,5 +4437,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf524a40fe5c5"
+  },
+  {
+    "id": "w374",
+    "title": "《紛争誘発プログラム（ふんそうゆうはつプログラム）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/紛争誘発プログラム-ふんそうゆうはつプログラム.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nb1dda398de52"
   }
 ];
