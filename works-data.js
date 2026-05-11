@@ -4034,5 +4034,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n0d077d5bdb68"
+  },
+  {
+    "id": "w343",
+    "title": "《静脈配線（じょうみゃく はいせん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/静脈配線-じょうみゃく-はいせん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n31b9ecd255bb"
   }
 ];
