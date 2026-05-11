@@ -4320,5 +4320,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf166f4a5b7eb"
+  },
+  {
+    "id": "w365",
+    "title": "《破壊再生循環器（はかいさいせいじゅんかんき）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/破壊再生循環器-はかいさいせいじゅんかんき.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf840564c785f"
   }
 ];
