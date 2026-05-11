@@ -3995,5 +3995,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n59cc7bf67399"
+  },
+  {
+    "id": "w340",
+    "title": "《噛み締め鎖（かみしめ ぐさり）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/噛み締め鎖-かみしめ-ぐさり.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/naa4002d0faa5"
   }
 ];
