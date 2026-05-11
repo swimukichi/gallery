@@ -4138,5 +4138,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n4c3630368a0e"
+  },
+  {
+    "id": "w351",
+    "title": "《踏砕復讐足（ふみくだく ふくしゅうそく）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/踏砕復讐足-ふみくだく-ふくしゅうそく.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n0aebec2d8851"
   }
 ];
