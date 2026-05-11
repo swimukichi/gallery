@@ -4372,5 +4372,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n306b82aef30f"
+  },
+  {
+    "id": "w369",
+    "title": "《自律打撃選択機構（じりつだげきせんたくきこう）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/自律打撃選択機構-じりつだげきせんたくきこう.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n49ce1642e403"
   }
 ];
