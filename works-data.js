@@ -4151,5 +4151,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n0aebec2d8851"
+  },
+  {
+    "id": "w352",
+    "title": "《死骸航行体（しがい こうこうたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/死骸航行体-しがい-こうこうたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nb943078c5694"
   }
 ];
