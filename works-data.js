@@ -4268,5 +4268,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/ne27fcd24ce6b"
+  },
+  {
+    "id": "w361",
+    "title": "《四系統出力体（よんけいとうしゅつりょくたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/四系統出力体-よんけいとうしゅつりょくたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n7515bccfe8b7"
   }
 ];
