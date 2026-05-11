@@ -4255,5 +4255,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n2d2ff5db9446"
+  },
+  {
+    "id": "w360",
+    "title": "《切断接続環（せつだんせつぞくかん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/切断接続環-せつだんせつぞくかん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/ne27fcd24ce6b"
   }
 ];
