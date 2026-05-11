@@ -4073,5 +4073,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf08436d0afbc"
+  },
+  {
+    "id": "w346",
+    "title": "《\n      獅肺残衣｜ヘラクレスの獅子皮（myth×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/獅肺残衣-ヘラクレスの獅子皮-myth-biomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nbc03ed7bf326"
   }
 ];
