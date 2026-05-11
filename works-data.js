@@ -4099,5 +4099,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n9a5661d12268"
+  },
+  {
+    "id": "w348",
+    "title": "《\n      フィロデンドロン・セローム｜葉脈配線体（Plant×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/フィロデンドロン・セローム-葉脈配線体-plant-biomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nd7aedc091550"
   }
 ];
