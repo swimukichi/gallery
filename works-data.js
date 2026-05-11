@@ -4346,5 +4346,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n0af43d7a7eaa"
+  },
+  {
+    "id": "w367",
+    "title": "《接触構造走査爪（せっしょくこうぞうそうさづめ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/接触構造走査爪-せっしょくこうぞうそうさづめ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/ne40a852e0363"
   }
 ];
