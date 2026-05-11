@@ -4112,5 +4112,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nd7aedc091550"
+  },
+  {
+    "id": "w349",
+    "title": "《死後稼働翼（しご かどう よく）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/死後稼働翼-しご-かどう-よく.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/na944a7c2a3ef"
   }
 ];
