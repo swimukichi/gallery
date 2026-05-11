@@ -4307,5 +4307,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n041bf894af1b"
+  },
+  {
+    "id": "w364",
+    "title": "《過剰秩序解体機（かじょうちつじょかいたいき）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/過剰秩序解体機-かじょうちつじょかいたいき.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf166f4a5b7eb"
   }
 ];
