@@ -4216,5 +4216,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nbea6a6b86ba3"
+  },
+  {
+    "id": "w357",
+    "title": "《双液分泌体（そうえき ぶんぴつたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/双液分泌体-そうえき-ぶんぴつたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n7e61f4a0b2c0"
   }
 ];
