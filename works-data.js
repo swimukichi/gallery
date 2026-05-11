@@ -4476,5 +4476,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n7924a1afdcd5"
+  },
+  {
+    "id": "w377",
+    "title": "《永続供給消費サイクル装置（えいぞくきょうきゅうしょうひサイクルそうち）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/永続供給消費サイクル装置-えいぞくきょうきゅうしょうひサイクルそうち.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n2e9644f12d03"
   }
 ];
