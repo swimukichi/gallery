@@ -4229,5 +4229,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n7e61f4a0b2c0"
+  },
+  {
+    "id": "w358",
+    "title": "《ケルベロス（けるべろす）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/ケルベロス-けるべろす.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nbaa50669ed9d"
   }
 ];
