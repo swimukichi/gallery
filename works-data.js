@@ -3956,5 +3956,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/ne2dc9e427ced"
+  },
+  {
+    "id": "w337",
+    "title": "《\n      神経網葉｜フィットニア（Plant×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/plantbiomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n26d7736bde45"
   }
 ];
