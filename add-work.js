@@ -25,7 +25,12 @@ if (!fs.existsSync(imagesDir)) fs.mkdirSync(imagesDir, { recursive: true });
 const fetch = async (url) => {
   const https = require('https');
   return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+    https.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+        Referer: 'https://note.com/'
+      }
+    }, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -119,7 +124,15 @@ function detectSeries(title, hashtags) {
 async function downloadImage(url) {
   const https = require('https');
   return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+    https.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+        Referer: 'https://note.com/'
+      }
+    }, (res) => {
+      if (res.statusCode !== 200) {
+        return reject(new Error(`HTTP ${res.statusCode} when downloading image`));
+      }
       const chunks = [];
       res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => resolve(Buffer.concat(chunks)));
@@ -146,6 +159,7 @@ async function optimizeImage(buffer, outputFilename) {
     return { ratio, filename: outputFilename };
   } catch (error) {
     console.error(`  ❌ Optimize failed: ${error.message}`);
+    if (error.stack) console.error(error.stack);
     return null;
   }
 }
@@ -179,11 +193,28 @@ async function processNoteUrl(url) {
     console.log(`  📥 Downloading first image...`);
     const buffer = await downloadImage(imageUrl);
 
-    const filename = `${slugify(japaneseName || title)}.webp`;
-    const result = await optimizeImage(buffer, filename);
+    const imageExt = path.extname(new URL(imageUrl).pathname).toLowerCase() || '.jpg';
+    const baseName = slugify(japaneseName || title);
+    const webpFilename = `${baseName}.webp`;
+    const fallbackFilename = `${baseName}${imageExt}`;
+
+    let result = await optimizeImage(buffer, webpFilename);
+    let outputFilename = webpFilename;
+    let aspectRatio = '3/4';
+
     if (!result) {
-      console.log(`  ⚠️  Could not optimize image`);
-      return false;
+      console.log(`  ⚠️  Could not optimize image, saving raw download instead`);
+      const fallbackPath = path.join(imagesDir, fallbackFilename);
+      fs.writeFileSync(fallbackPath, buffer);
+      outputFilename = fallbackFilename;
+      try {
+        const metadata = await sharp(buffer).metadata();
+        aspectRatio = computeAspectRatio(metadata.width || 1500, metadata.height || metadata.width || 1500);
+      } catch (metaError) {
+        console.error(`  ⚠️  Could not read metadata after fallback save: ${metaError.message}`);
+      }
+    } else {
+      aspectRatio = result.ratio;
     }
 
     const newId = getNextId(works);
@@ -191,8 +222,8 @@ async function processNoteUrl(url) {
       id: newId,
       title: japaneseName ? `《${japaneseName}》` : `《${title}》`,
       category: 'illustration',
-      aspectRatio: result.ratio,
-      thumbnail: `images/${result.filename}`,
+      aspectRatio,
+      thumbnail: `images/${outputFilename}`,
       tags: [],
       description: '',
       genre: seriesMap[series],

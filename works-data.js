@@ -3969,5 +3969,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n26d7736bde45"
+  },
+  {
+    "id": "w338",
+    "title": "《多性紡糸器》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/.png",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n4428ba10e0c9"
   }
 ];
