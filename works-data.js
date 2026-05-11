@@ -4190,5 +4190,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n6eccddbe4800"
+  },
+  {
+    "id": "w355",
+    "title": "《体内溶鉱炉（たいない ようこうろ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/体内溶鉱炉-たいない-ようこうろ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nb1fc5a04e164"
   }
 ];
