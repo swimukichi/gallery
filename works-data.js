@@ -4242,5 +4242,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nbaa50669ed9d"
+  },
+  {
+    "id": "w359",
+    "title": "《並列消化腕（へいれつしょうかわん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/並列消化腕-へいれつしょうかわん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n2d2ff5db9446"
   }
 ];
