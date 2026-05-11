@@ -4333,5 +4333,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf840564c785f"
+  },
+  {
+    "id": "w366",
+    "title": "《燃焼情報圧縮体（ねんしょうじょうほうあっしゅくたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/燃焼情報圧縮体-ねんしょうじょうほうあっしゅくたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n0af43d7a7eaa"
   }
 ];
