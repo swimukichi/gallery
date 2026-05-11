@@ -4086,5 +4086,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nbc03ed7bf326"
+  },
+  {
+    "id": "w347",
+    "title": "《\n      整臓琴｜オルフェウスの竪琴（myth×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/整臓琴-オルフェウスの竪琴-myth-biomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n9a5661d12268"
   }
 ];
