@@ -4164,5 +4164,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nb943078c5694"
+  },
+  {
+    "id": "w353",
+    "title": "《永続咀嚼体（えいぞく そしゃくたい）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/永続咀嚼体-えいぞく-そしゃくたい.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n4ef3e54b0f4e"
   }
 ];
