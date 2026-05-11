@@ -4411,5 +4411,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n96654ff7a83c"
+  },
+  {
+    "id": "w372",
+    "title": "《自己犠牲記憶保存装置（じこぎせいきおくほぞんそうち）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/自己犠牲記憶保存装置-じこぎせいきおくほぞんそうち.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n2736d5bf5611"
   }
 ];
