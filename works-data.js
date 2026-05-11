@@ -4203,5 +4203,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nb1fc5a04e164"
+  },
+  {
+    "id": "w356",
+    "title": "《生体培養函（せいたい ばいよう かん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/生体培養函-せいたい-ばいよう-かん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nbea6a6b86ba3"
   }
 ];
