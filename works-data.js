@@ -4125,5 +4125,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/na944a7c2a3ef"
+  },
+  {
+    "id": "w350",
+    "title": "《宿主循環呪（やどぬし じゅんかん じゅ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/宿主循環呪-やどぬし-じゅんかん-じゅ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n4c3630368a0e"
   }
 ];
