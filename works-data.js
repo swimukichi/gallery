@@ -3610,264 +3610,264 @@ const works = [
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260415_233823_aa8613c2-5f0f-4fa9-a01c-501ee5890ff4.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w309",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260415_233840_ccfec50e-9c0e-437a-9689-1dfaa7ef9fb3.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w310",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_001137_1208e663-a684-4e34-9604-6dca24293ba5.webp",
+    "thumbnail": "images/note-n00695b34b38f-03.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w311",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_001154_1a0eefeb-cf39-4b36-8d77-a82b1e267619.webp",
+    "thumbnail": "images/note-n00695b34b38f-04.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w312",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_001210_42337e69-85e8-4ac4-a61d-63d7368d6bea.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w313",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_001228_901fca14-5678-4366-909f-fbce3492b475.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w314",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_003433_c5c8658b-3bcf-447a-8f27-3f6c99e16a70.webp",
+    "thumbnail": "images/note-n00695b34b38f-03.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w315",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_003453_b3defdc8-ef1b-47ce-880d-62252a4ff51e.webp",
+    "thumbnail": "images/note-n00695b34b38f-04.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w316",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_003510_cecfde01-be58-42c0-8ca5-a5f46ad2ed8a.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w317",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260416_003535_7e783838-9570-4472-9abd-143fefa85446.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w318",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260417_112725_372d8c36-6e96-4870-91a3-d52b827ff370.webp",
+    "thumbnail": "images/note-n00695b34b38f-03.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w319",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260417_112744_7b6ebd9d-99c0-4424-94b7-e6e807bd4674.webp",
+    "thumbnail": "images/note-n00695b34b38f-04.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w320",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260417_120056_e8bf23a1-6633-4f0c-976c-be488d14fa5d.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w321",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260417_120115_2fa16142-a1e2-43fa-8b31-4a0c8e4f8146.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w322",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260420_062633_f84c55c1-be0a-429e-9101-626e07797a40.webp",
+    "thumbnail": "images/note-n00695b34b38f-03.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w323",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260420_062653_08426709-8854-49ad-9b63-d784c98fd3ce.webp",
+    "thumbnail": "images/note-n00695b34b38f-04.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w324",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260420_062713_055278cb-480f-43d3-afa1-484b8dc19441.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w325",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260420_062733_a59dc8cf-3a9b-4958-a506-22eabbd47cdb.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w326",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260422_225157_4fa63778-46c9-4670-b348-905024756ba7.webp",
+    "thumbnail": "images/note-n00695b34b38f-03.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w327",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260422_225213_cd4a7b55-cfc0-4b82-9add-f477b4d7942e.webp",
+    "thumbnail": "images/note-n00695b34b38f-04.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w328",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260422_225228_d25b7352-b444-4a0c-af4a-3b391cda315b.webp",
+    "thumbnail": "images/note-n00695b34b38f-01.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w329",
     "title": "外皮データパージ機構",
     "category": "myth-biomechanical",
     "genre": "myth×biomechanical",
-    "thumbnail": "images/hf_20260422_225242_41554209-d6b7-48f4-b36c-0ff0b50a299d.webp",
+    "thumbnail": "images/note-n00695b34b38f-02.webp",
     "description": "脱皮は成長じゃない。定期メンテナンスだ。",
     "description_en": "Molting isn't growth. It's scheduled maintenance.",
     "description_zh": "蛻皮不是成長，而は定期維護。",
     "link": "https://note.com/swi0801/n/n00695b34b38f",
-    "aspectRatio": "square"
+    "aspectRatio": "4/5"
   },
   {
     "id": "w333",
