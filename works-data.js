@@ -4021,5 +4021,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n375a5539895d"
+  },
+  {
+    "id": "w342",
+    "title": "《補修饗宴（ほしゅう きょうえん）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/補修饗宴-ほしゅう-きょうえん.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n0d077d5bdb68"
   }
 ];
