@@ -4463,5 +4463,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n28b966b70c49"
+  },
+  {
+    "id": "w376",
+    "title": "《適応型飛行制御システム（てきおうがたひこうせいぎょシステム）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/適応型飛行制御システム-てきおうがたひこうせいぎょシステム.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n7924a1afdcd5"
   }
 ];
