@@ -4060,5 +4060,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf52f3910cf34"
+  },
+  {
+    "id": "w345",
+    "title": "《\n      視鉱胞眼｜メドゥーサの目（myth×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/視鉱胞眼-メドゥーサの目-myth-biomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf08436d0afbc"
   }
 ];
