@@ -4008,5 +4008,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/naa4002d0faa5"
+  },
+  {
+    "id": "w341",
+    "title": "《待機する葉列（たいき する はれつ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/待機する葉列-たいき-する-はれつ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "plants",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n375a5539895d"
   }
 ];
