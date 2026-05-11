@@ -4398,5 +4398,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nefaf235be7fd"
+  },
+  {
+    "id": "w371",
+    "title": "《環境走査外皮アレイ（かんきょうそうさがいひアレイ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/環境走査外皮アレイ-かんきょうそうさがいひアレイ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n96654ff7a83c"
   }
 ];
