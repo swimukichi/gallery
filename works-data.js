@@ -4047,5 +4047,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n31b9ecd255bb"
+  },
+  {
+    "id": "w344",
+    "title": "《採葉神経樹（さいよう しんけいじゅ）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/採葉神経樹-さいよう-しんけいじゅ.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nf52f3910cf34"
   }
 ];
