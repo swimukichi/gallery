@@ -216,15 +216,42 @@ async function getMagazineArticles(magazineUrl) {
   try {
     const html = await fetch(magazineUrl);
     const urls = new Set();
-    // 相対パスで /username/n/xxxx を抽出
-    const regex = /href="(\/[^"]*\/n\/[a-z0-9]+)"/g;
+    
+    // パターン1: 相対パス /username/n/articleid （大文字・ハイフン対応）
+    let regex = /href="(\/[a-zA-Z0-9_]+\/n\/[a-zA-Z0-9_-]+)"/g;
     let match;
     while ((match = regex.exec(html)) !== null) {
       const relativePath = match[1];
-      // https://note.com に結合
       const fullUrl = `https://note.com${relativePath}`;
       urls.add(fullUrl);
     }
+    
+    // パターン2: より広いパターン（/n/ を含むすべてのパス）
+    if (urls.size === 0) {
+      regex = /href="([^"]*\/n\/[a-zA-Z0-9_-]+)"/g;
+      while ((match = regex.exec(html)) !== null) {
+        let fullUrl = match[1];
+        if (!fullUrl.startsWith('http')) {
+          fullUrl = `https://note.com${fullUrl.startsWith('/') ? '' : '/'}${fullUrl}`;
+        }
+        urls.add(fullUrl);
+      }
+    }
+    
+    // デバッグ: マガジンページのHTMLサイズとサンプルを確認
+    if (urls.size === 0) {
+      console.log(`  ⚠️  HTML size: ${html.length} bytes`);
+      // 最初の500件のhref属性を表示（デバッグ用）
+      const hrefMatches = html.match(/href="[^"]+"/g) || [];
+      console.log(`  ⚠️  Found ${hrefMatches.length} href attributes`);
+      if (hrefMatches.length > 0) {
+        const nNoteHrefs = hrefMatches.filter(h => h.includes('/n/')).slice(0, 5);
+        if (nNoteHrefs.length > 0) {
+          console.log(`  📌 Sample /n/ hrefs:`, nNoteHrefs.map(h => h.substring(0, 80)));
+        }
+      }
+    }
+    
     return Array.from(urls);
   } catch (error) {
     console.error(`Failed to fetch magazine: ${error.message}`);

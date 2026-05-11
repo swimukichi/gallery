@@ -132,43 +132,52 @@ node add-work.js --note "https://note.com/swi0801/n/xxxx"
 - `works-data.js` に追加（重複チェック付き）
 - git自動化
 
-### 使い方②：マガジン全件を一括追加
+### 使い方②：マガジン全件を一括追加（実験的）
 ```bash
 node add-work.js --magazine "https://note.com/swi0801/m/xxxx"
 ```
 
-マガジンの全記事から画像を抽出し、上記処理を順番に実行します。
-既存の URL は自動的にスキップされます。
+**注意**: note.com のマガジンページは JavaScript で動的にレンダリングされるため、このオプションは現在 0 件となります。
+将来的には Puppeteer などのヘッドレスブラウザを使用して対応する予定です。
 
-### シリーズ判定ロジック
-- ハッシュタグに `myth`, `北欧神話`, `ギリシャ神話` → **myth**
-- ハッシュタグに `plants`, `観葉植物` → **plants**
-- その他 → **domestic**
+**現在の対応方法**:
+- マガジンの全記事を手動で確認して、各記事の URL を取得
+- 各記事について `--note` オプションで個別に実行
 
-### 自動抽出される情報
-| 項目 | 抽出元 |
-|-----|------|
+例：
+```bash
+node add-work.js --note "https://note.com/swi0801/n/xxxx1"
+node add-work.js --note "https://note.com/swi0801/n/xxxx2"
+node add-work.js --note "https://note.com/swi0801/n/xxxx3"
+```
 | タイトル | og:title メタタグまたは h1 要素 |
 | 作品名（《》内）| 本文中の《日本語テキスト》 |
 | シリーズ | ハッシュタグとタイトル |
 | 画像 | assets.st-note.com で始まる URL（最初の1枚を使用） |
 | 記事URL | link フィールドに自動保存 |
 
-### 例
+### 使用例
 
-単一記事：
+単一記事を追加：
 ```bash
-node add-work.js --note "https://note.com/swi0801/n/n1a2b3c4d5e6f"
+node add-work.js --note "https://note.com/swi0801/n/nb4054b787398"
 ```
 
-マガジン：
+複数記事を順番に追加：
 ```bash
-node add-work.js --magazine "https://note.com/swi0801/m/md9fde77c22b2"
+node add-work.js --note "https://note.com/swi0801/n/n1a2b3c4d5e6f"
+node add-work.js --note "https://note.com/swi0801/n/n1a2b3c4d5e6g"
+node add-work.js --note "https://note.com/swi0801/n/n1a2b3c4d5e6h"
 ```
 
 ### 重複チェック
-- works-data.js に同じ noteURL が存在する場合は、自動的にスキップされます
+- works-data.js に同じ link URL が存在する場合は、自動的にスキップされます
 - 既存データとの競合は発生しません
+
+### シリーズ判定ロジック
+- ハッシュタグに `myth`, `北欧神話`, `ギリシャ神話` → **myth**
+- ハッシュタグに `plants`, `観葉植物` → **plants**
+- その他 → **domestic**
 
 ### 注意点
 - ネットワーク接続が必要です

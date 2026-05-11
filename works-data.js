@@ -3917,5 +3917,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nb4054b787398"
+  },
+  {
+    "id": "w334",
+    "title": "《\n      神縫裂腱｜アキレス腱（myth×biomechanical）\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/mythbiomechanical.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n74fe14036406"
   }
 ];
