@@ -7,7 +7,8 @@
     "optimize:videos": "node scripts/optimize-videos.js",
     "optimize": "npm run optimize:images && npm run optimize:videos",
     "import:works": "node scripts/import-works.js",
-    "add-work": "node add-work.js"
+    "add-work": "node add-work.js",
+    "fill-thumbnails": "node scripts/fill-thumbnails.js"
   },
   "dependencies": {
     "ffmpeg-static": "^5.3.0",
