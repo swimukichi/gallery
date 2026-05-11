@@ -4385,5 +4385,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n49ce1642e403"
+  },
+  {
+    "id": "w370",
+    "title": "《自律並列推進機構（じりつへいれつすいしんきこう）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/自律並列推進機構-じりつへいれつすいしんきこう.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nefaf235be7fd"
   }
 ];
