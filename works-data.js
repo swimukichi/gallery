@@ -4359,5 +4359,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/ne40a852e0363"
+  },
+  {
+    "id": "w368",
+    "title": "《幹内信号変換端子（かんないしんごうへんかんたんし）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/幹内信号変換端子-かんないしんごうへんかんたんし.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n306b82aef30f"
   }
 ];
