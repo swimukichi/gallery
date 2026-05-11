@@ -4450,5 +4450,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nb1dda398de52"
+  },
+  {
+    "id": "w375",
+    "title": "《自己増殖型損傷応答機構（じこぞうしょくがたそんしょうおうとうきこう）》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/自己増殖型損傷応答機構-じこぞうしょくがたそんしょうおうとうきこう.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n28b966b70c49"
   }
 ];
