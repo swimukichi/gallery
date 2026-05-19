@@ -4292,5 +4292,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n62f75d6473a7"
+  },
+  {
+    "id": "w385",
+    "title": "《\n      神話キャラクタ侵食図鑑｜ハデス｜NAO\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/神話キャラクタ侵食図鑑-ハデス-nao.webp",
+    "tags": [],
+    "description": "",
+    "genre": "domestic×mutation",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nadd9733f645a"
   }
 ];
