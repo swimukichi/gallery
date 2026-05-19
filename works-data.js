@@ -4266,5 +4266,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nc23dbbf8098b"
+  },
+  {
+    "id": "w383",
+    "title": "《\n      神話キャラクタ侵食図鑑｜オリュンポス12神——バイオメカニカル化計画、始動｜NAO\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/神話キャラクタ侵食図鑑-オリュンポス12神-バイオメカニカル化計画、始動-nao.webp",
+    "tags": [],
+    "description": "",
+    "genre": "domestic×mutation",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n3b8e954bf7c6"
   }
 ];
