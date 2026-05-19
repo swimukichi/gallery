@@ -4240,5 +4240,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n89bb5ab9a30c"
+  },
+  {
+    "id": "w381",
+    "title": "《多波解析眼》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/多波解析眼.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n2e2320d2a018"
   }
 ];
