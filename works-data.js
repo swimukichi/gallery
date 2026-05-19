@@ -4279,5 +4279,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n3b8e954bf7c6"
+  },
+  {
+    "id": "w384",
+    "title": "《\n      神話キャラクタ侵食図鑑｜ディオニュソス｜NAO\n    》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/神話キャラクタ侵食図鑑-ディオニュソス-nao.webp",
+    "tags": [],
+    "description": "",
+    "genre": "domestic×mutation",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n62f75d6473a7"
   }
 ];
