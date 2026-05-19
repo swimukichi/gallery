@@ -4253,5 +4253,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n2e2320d2a018"
+  },
+  {
+    "id": "w382",
+    "title": "《指向放電体》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/指向放電体.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/nc23dbbf8098b"
   }
 ];
