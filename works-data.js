@@ -4227,5 +4227,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/n725e27c5ca43"
+  },
+  {
+    "id": "w380",
+    "title": "《素材換体顎》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/素材換体顎.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n89bb5ab9a30c"
   }
 ];
