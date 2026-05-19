@@ -4214,5 +4214,18 @@ const works = [
     "description_en": "",
     "description_zh": "",
     "link": "https://note.com/swi0801/n/nf30b3869b357"
+  },
+  {
+    "id": "w379",
+    "title": "《衝撃記録牙》",
+    "category": "illustration",
+    "aspectRatio": "4/5",
+    "thumbnail": "images/衝撃記録牙.webp",
+    "tags": [],
+    "description": "",
+    "genre": "myth",
+    "description_en": "",
+    "description_zh": "",
+    "link": "https://note.com/swi0801/n/n725e27c5ca43"
   }
 ];
