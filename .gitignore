@@ -9,3 +9,6 @@ _original/videos/*
 # Ignore import source images
 _import/images/*
 !_import/images/.gitkeep
+
+# text-video などの生成物
+_out/

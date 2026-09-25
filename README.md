@@ -184,3 +184,24 @@ node add-work.js --note "https://note.com/swi0801/n/n1a2b3c4d5e6h"
 - note の記事が公開状態である必要があります
 - HTML 構造が変更された場合、抽出に失敗する可能性があります
 
+
+## スマホから指示を出す（Claude Code on the web）
+
+Claude アプリの Code タブでこのリポジトリを選び、次のように打つ。設定は `CLAUDE.md` と `.claude/skills/` にある。
+
+| 指示 | やること |
+|---|---|
+| `/zukan ペルセポネ` | 侵食図鑑 1 柱分の記事・プロンプト・投稿文・文字動画 |
+| `/novel 次の話` | 侵食小説 1 話分の本文・投稿文・文字動画 |
+| `/text-video <note URL>` | 投稿済み記事から文字ベースの縦動画を作って送る |
+| `/week` | 翌週の予約投稿チェックリスト |
+| `/site-add <note URL>` | サイトに作品を追加して表記を整える |
+
+## 文字ベースの動画を作る
+
+```bash
+npm run text-video -- content/text-videos/_sample-zukan.json
+```
+
+- 台本 JSON の見本：`content/text-videos/_sample-zukan.json`、`_sample-novel.json`
+- 出力：`_out/text-videos/<台本名>.mp4`（1080x1920、git 管理外）
