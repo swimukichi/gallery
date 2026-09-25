@@ -12,9 +12,18 @@ Claude は「記事制作」「SNS展開」「サイト更新補助」「素材�
 - 投稿は本人が各サイトで手動予約する。Claude は予約日時と文面まで用意する
 
 ## 制作の流れ（1 本あたり）
-1. **投稿**：note 本編 → アメブロ（要約＋note 誘導）→ サイト追加
-2. **文字ベースの動画**：投稿した記事から台本 JSON を作り `npm run text-video -- <json>` で縦動画を生成
-3. **投稿**：文字動画を TikTok / Instagram リール / YouTube ショートへ。静止画は IG・X・Threads へ
+1. **記事作成**：Claude が記事・投稿文・Higgsfield プロンプト・予約表を作る。本人が各サイトで予約投稿し、サイトにも追加
+2. **動画生成**：本人が Higgsfield で背景画（9:16）と動くカットを生成 → `content/assets/<series>-<slug>/` に入れる → Claude が台本 JSON を作り `npm run text-video -- <json>` で文字動画を生成
+3. **動画投稿**：文字動画を TikTok / Instagram リール / YouTube ショートへ予約投稿
+
+記事の予定は `content/schedule/2026-Q4.md`。
+
+## Higgsfield 素材の受け渡し
+- 置き場所：`content/assets/<series>-<slug>/`（例 `content/assets/zukan-persephone/`）
+- 名前：`thumb.webp`（4:5 サムネ）、`bg-01.webp`〜（9:16 背景画）、`clip-01.mp4`〜（9:16 動くカット）
+- スマホからチャットに画像が添付されたら、sharp で webp（横 1080px・品質 85）に変換してこの名前で保存・コミットする
+- 動くカットは PC から push してもらう。1 本 10MB 以内を目安にし、大きいものは `npm run optimize:videos` で縮める
+- Google ドライブと higgsfield.ai からは、このクラウド環境に動画を取り込めない
 
 ## シリーズ
 | シリーズ | 中身 | 主な客層 | 主な媒体 |
@@ -64,6 +73,10 @@ Claude は「記事制作」「SNS展開」「サイト更新補助」「素材�
 ## 文字動画の台本 JSON
 `content/text-videos/_sample-zukan.json` と `_sample-novel.json` を見本にする。
 - `style`: `zukan`（ゴシック・背景に作品画像）/ `novel`（明朝・無地背景）
+- `background`: 画像か動画のパス。台本全体と各スライドの両方に指定できる（スライド側が優先）
+  - 画像は `motion: "zoom"`（既定・ゆっくり寄る）か `"none"`
+  - 動画はループし、スライドをまたいで続きから再生される
+  - `bgBlur`: 背景のぼかし（既定 4、Higgsfield の背景専用画像なら 0〜2）
 - `slides[]`: `text`（`\n` で改行）, `sub`, `size`, `bold`, `duration`（省略時は文字数から自動）
 - 1 本 15〜30 秒、5〜7 枚。1 枚目は 2 秒で内容が分かるフックにし、最後はプロフィール誘導
 - 1 枚あたり全角 40 字以内

@@ -11,9 +11,10 @@ description: 神話キャラクタ侵食図鑑の1柱分の制作パック（not
 ## 手順
 1. `content/zukan/` を見て連番 NN と slug を決める
 2. 下の成果物を作り、`content/zukan/NN-<slug>.md` に全部まとめて保存する
-3. 文字動画の台本を `content/text-videos/zukan-<slug>.json` に保存し、`npm run text-video -- content/text-videos/zukan-<slug>.json` で生成
-   - 背景画像がまだ無いときは `background` を空にして単色で作り、画像が届いたら作り直すと伝える
-4. mp4 を SendUserFile で送る（display: attach）
+3. 文字動画の台本を `content/text-videos/zukan-<slug>.json` に保存する
+   - `content/assets/zukan-<slug>/` に素材があれば、すぐ `npm run text-video -- <json>` で生成して SendUserFile（display: attach）で送る
+   - 素材がまだなら動画は作らず、「Higgsfield で生成して素材を渡したら `/text-video zukan-<slug>` で作る」と伝える
+4. 予定は `content/schedule/2026-Q4.md` に従う。表にない神を指定されたら、表を更新する
 5. コミットして作業ブランチへ push
 6. チャットには「結論＋予約表＋ファイルの場所」だけを短く返す。本文はファイルを見てもらう
 
@@ -27,8 +28,10 @@ description: 神話キャラクタ侵食図鑑の1柱分の制作パック（not
    - 1,500〜2,500 字、末尾 CTA：マガジン、前回リンク、次回予告、進捗「N/12 柱」
    - ハッシュタグ 5 個
 3. **アメブロ版**：400〜600 字の要約＋制作メモ＋note への誘導文
-4. **Higgsfield 画像プロンプト**（英語）
-   - すぐ使う版・少し凝った版の 2 本。被写体、素材の質感、ライティング、アングル、構図、色、ネガティブを明記
-   - サムネ用 4:5 と、動画背景用 9:16 の指定を添える
+4. **Higgsfield プロンプト**（英語）。どれも被写体、素材の質感、ライティング、アングル、構図、色、ネガティブを明記
+   - サムネ（4:5）：すぐ使う版・少し凝った版の 2 本
+   - 動画の背景画（9:16）2〜3 本：文字を載せるので、画面中央〜上に暗く余白のある構図にする
+   - 動くカット（9:16・5 秒）1 本：動き・カメラワーク（slow push-in、orbit など）を指定
+   - 最後に「生成したら `content/assets/zukan-<slug>/` に thumb.webp / bg-01.webp / clip-01.mp4 の名前で入れるか、チャットに画像を添付」と一文添える
 5. **SNS 投稿文**：Instagram（カルーセル 5 枚の各枚の文字）、X（140 字以内）、Threads（300 字前後、問いかけで終える）、TikTok（キャプション短め）。各媒体に日英ハッシュタグ
 6. **文字動画の台本**（JSON と同じ内容を箇条書きで）

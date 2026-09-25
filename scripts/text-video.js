@@ -6,6 +6,9 @@
 //   npm run text-video -- content/text-videos/zukan-persephone.json
 //
 // 台本JSONの形式は content/text-videos/_sample-zukan.json を参照
+// background には画像（Higgsfield の 9:16 背景画など）か動画（Higgsfield の動くカット）を指定できる
+//   画像: motion "zoom"（既定）でゆっくり寄る / "none" で静止
+//   動画: 尺が足りなければループし、スライドをまたいで続きから再生する
 // 出力: _out/text-videos/<台本ファイル名>.mp4
 
 const fs = require('fs');
@@ -106,23 +109,82 @@ function slideSvg(slide, style, meta, index, total) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" font-family="${style.font}">${label}${body}${sub}${footer}</svg>`;
 }
 
-async function background(style, bgPath) {
-  const base = sharp({ create: { width: W, height: H, channels: 4, background: style.bg } });
-  if (!bgPath) return base.png().toBuffer();
-  const abs = path.resolve(ROOT, bgPath);
-  if (!fs.existsSync(abs)) {
-    console.warn(`背景画像が見つかりません: ${bgPath}（単色で続行）`);
-    return base.png().toBuffer();
+const VIDEO_EXT = /\.(mp4|mov|webm|m4v)$/i;
+
+function run(args) {
+  execFileSync(ffmpegPath, ['-y', '-loglevel', 'error', ...args]);
+}
+
+// ffmpeg -i の出力から動画の長さ（秒）を読む
+function videoLength(file) {
+  let out = '';
+  try {
+    execFileSync(ffmpegPath, ['-i', file], { stdio: 'pipe' });
+  } catch (e) {
+    out = String(e.stderr || '');
   }
-  const img = await sharp(abs).resize(W, H, { fit: 'cover' }).blur(6).toBuffer();
+  const m = out.match(/Duration: (\d+):(\d+):([\d.]+)/);
+  return m ? Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]) : 0;
+}
+
+// 背景を用意する。戻り値 { type: 'image' | 'video', file, length }
+async function prepareBackground(style, bgPath, work, key, blur) {
   const shade = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="100%" height="100%" fill="${style.bg}" fill-opacity="${style.dim}"/></svg>`);
-  return sharp(img).composite([{ input: shade }]).png().toBuffer();
+  const file = path.join(work, `bg${key}.png`);
+  const abs = bgPath && path.resolve(ROOT, bgPath);
+
+  if (abs && fs.existsSync(abs) && VIDEO_EXT.test(abs)) {
+    return { type: 'video', file: abs, length: videoLength(abs) };
+  }
+  if (abs && fs.existsSync(abs)) {
+    let img = sharp(abs).resize(W, H, { fit: 'cover' });
+    if (blur > 0) img = img.blur(blur);
+    await sharp(await img.toBuffer()).composite([{ input: shade }]).png().toFile(file);
+    return { type: 'image', file };
+  }
+  if (bgPath) console.warn(`背景が見つかりません: ${bgPath}（単色で続行）`);
+  await sharp({ create: { width: W, height: H, channels: 4, background: style.bg } }).png().toFile(file);
+  return { type: 'solid', file };
 }
 
 function duration(slide, style) {
   if (slide.duration) return slide.duration;
   const chars = [...String(slide.text || '')].length;
   return Math.min(7, Math.max(2.5, chars * style.secPerChar + 1));
+}
+
+function hex(c) {
+  return '0x' + c.replace('#', '');
+}
+
+// 1枚分の動画を作る：背景（画像のズーム or 動画）＋文字の重ね＋フェード
+function renderSegment({ bg, textPng, d, offset, motion, style, blur, out }) {
+  const frames = Math.round(d * FPS);
+  const fades = `fade=t=in:st=0:d=${FADE},fade=t=out:st=${(d - FADE).toFixed(2)}:d=${FADE}`;
+  let inputs;
+  let bgChain;
+
+  if (bg.type === 'video') {
+    const start = bg.length > 0 ? offset % bg.length : 0;
+    inputs = ['-stream_loop', '-1', '-ss', start.toFixed(2), '-i', bg.file];
+    bgChain = `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=${FPS}` +
+      (blur > 0 ? `,boxblur=${Math.max(1, Math.round(blur / 2))}` : '') +
+      `,drawbox=x=0:y=0:w=iw:h=ih:color=${hex(style.bg)}@${style.dim}:t=fill,setsar=1[bg]`;
+  } else if (bg.type === 'image' && motion !== 'none') {
+    inputs = ['-i', bg.file];
+    // 2倍に拡大してから寄ると、ズームのガタつきが出にくい
+    bgChain = `[0:v]scale=${W * 2}:${H * 2},zoompan=z='1+0.08*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS},setsar=1[bg]`;
+  } else {
+    inputs = ['-loop', '1', '-i', bg.file];
+    bgChain = `[0:v]fps=${FPS},setsar=1[bg]`;
+  }
+
+  run([
+    ...inputs, '-loop', '1', '-i', textPng,
+    '-filter_complex', `${bgChain};[bg][1:v]overlay=0:0:shortest=0,${fades},format=yuv420p[v]`,
+    '-map', '[v]', '-t', String(d), '-an',
+    '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', out,
+  ]);
 }
 
 async function main() {
@@ -143,47 +205,47 @@ async function main() {
 
   const bgCache = {};
   const segs = [];
+  let clock = 0;
   for (let i = 0; i < slides.length; i++) {
     const s = slides[i];
     const bgKey = s.background !== undefined ? s.background : script.background;
-    if (!(bgKey in bgCache)) bgCache[bgKey] = await background(style, bgKey);
-    const png = path.join(work, `s${i}.png`);
-    await sharp(bgCache[bgKey])
-      .composite([{ input: Buffer.from(slideSvg(s, style, script, i, slides.length)) }])
-      .png()
-      .toFile(png);
+    const blur = s.bgBlur ?? script.bgBlur ?? 4;
+    const cacheKey = `${bgKey}|${blur}`;
+    if (!(cacheKey in bgCache)) {
+      bgCache[cacheKey] = await prepareBackground(style, bgKey, work, Object.keys(bgCache).length, blur);
+    }
+    const bg = bgCache[cacheKey];
+
+    const textPng = path.join(work, `t${i}.png`);
+    await sharp(Buffer.from(slideSvg(s, style, script, i, slides.length))).png().toFile(textPng);
 
     const d = duration(s, style);
     const seg = path.join(work, `s${i}.mp4`);
-    execFileSync(ffmpegPath, [
-      '-y', '-loglevel', 'error', '-loop', '1', '-t', String(d), '-i', png,
-      '-vf', `fps=${FPS},fade=t=in:st=0:d=${FADE},fade=t=out:st=${(d - FADE).toFixed(2)}:d=${FADE},format=yuv420p`,
-      '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', seg,
-    ]);
+    renderSegment({ bg, textPng, d, offset: clock, motion: s.motion || script.motion || 'zoom', style, blur, out: seg });
     segs.push(seg);
-    console.log(`  スライド ${i + 1}/${slides.length}（${d.toFixed(1)}秒）`);
+    clock += d;
+    console.log(`  スライド ${i + 1}/${slides.length}（${d.toFixed(1)}秒・背景: ${bg.type}）`);
   }
 
   const list = path.join(work, 'list.txt');
-  fs.writeFileSync(list, segs.map((s) => `file '${s}'`).join('\n'));
+  fs.writeFileSync(list, segs.map((s) => `file '${s.replace(/\\/g, '/')}'`).join('\n'));
   const silent = path.join(work, 'joined.mp4');
-  execFileSync(ffmpegPath, ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', silent]);
+  run(['-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', silent]);
 
   const out = path.join(outDir, `${name}.mp4`);
   const bgm = script.bgm && path.resolve(ROOT, script.bgm);
   if (bgm && fs.existsSync(bgm)) {
-    execFileSync(ffmpegPath, [
-      '-y', '-loglevel', 'error', '-i', silent, '-stream_loop', '-1', '-i', bgm,
+    run([
+      '-i', silent, '-stream_loop', '-1', '-i', bgm,
       '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k',
       '-af', 'afade=t=in:d=1', '-shortest', '-movflags', '+faststart', out,
     ]);
   } else {
-    execFileSync(ffmpegPath, ['-y', '-loglevel', 'error', '-i', silent, '-c', 'copy', '-movflags', '+faststart', out]);
+    run(['-i', silent, '-c', 'copy', '-movflags', '+faststart', out]);
   }
   fs.rmSync(work, { recursive: true, force: true });
 
-  const total = slides.reduce((a, s) => a + duration(s, style), 0);
-  console.log(`\n完成: ${path.relative(ROOT, out)}（約${Math.round(total)}秒）`);
+  console.log(`\n完成: ${path.relative(ROOT, out)}（約${Math.round(clock)}秒）`);
 }
 
 main().catch((e) => {
