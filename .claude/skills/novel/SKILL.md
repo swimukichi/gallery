@@ -29,6 +29,10 @@ description: note で連載中の日常・心理ホラー長編の続きの章�
 5. サムネ：作品共通の `thumb.json` に `"chapter": "第N章　章題"` を足した章ごと版を `npm run note-thumb` で作って送る。背景画がまだ無ければ Higgsfield プロンプト（英語、16:9、右 1/3 に被写体・左は暗い余白、静かで生活感のある画、違和感は一点だけ）を 2 本出す
 6. 完結する章なら：次に連載する作品の候補 2 案（すぐ使う版＝既存の未完作品の再開、少し凝った版＝新作の 1 行あらすじ）
 
+## 4 サイトへの予約用ページ
+- 全話そろったら `meta.json` を作り、`node scripts/novel-pack.js content/novel/<作品slug> <scratchpad>/pack/<slug>-pack.html` でページを作って Artifact で公開する
+- 各話の note 用（ヘッダー・次回リンク・同時掲載・AI 使用・ハッシュタグ付き）と、カクヨム・なろう・エブリスタ用（本文のみ）をコピーでき、予約済みのチェックが付けられる
+
 ## 保存と動画
 - `_bible.md` の「これまでのあらすじ」を 2〜3 行更新
 - 週に 1 回（合間の週・テーマ週とも土曜）は、その週の章から台本 `content/text-videos/novel-<作品slug>-wNN.json`（style: novel）を作り `npm run text-video -- <json>` で生成して送る
