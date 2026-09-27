@@ -13,16 +13,8 @@ const dir = path.resolve(ROOT, process.argv[2] || '');
 const meta = JSON.parse(fs.readFileSync(path.join(dir, 'meta.json'), 'utf8'));
 const out = path.resolve(ROOT, process.argv[3] || `_out/novel/${meta.slug}.html`);
 
-const files = fs.readdirSync(dir).filter((f) => /^\d+\.md$/.test(f)).sort();
-const chapters = files.map((f, i) => {
-  const [head, ...rest] = fs.readFileSync(path.join(dir, f), 'utf8').split('\n');
-  const heading = head.replace(/^#\s*/, '').trim();
-  // 端末のタイムゾーンに左右されないよう UTC で日付だけを数える
-  const [y, m, day] = meta.start.split('-').map(Number);
-  const d = new Date(Date.UTC(y, m - 1, day + i));
-  const date = `${d.getUTCMonth() + 1}/${d.getUTCDate()}（${'日月火水木金土'[d.getUTCDay()]}）`;
-  return { no: i + 1, heading, date, body: rest.join('\n').trim() };
-});
+const { makeNovelFormat, loadNovel } = require('./lib/novel-format');
+const { chapters } = loadNovel(dir);
 
 const data = JSON.stringify({ meta, chapters }).replace(/</g, '\\u003c');
 
@@ -123,34 +115,9 @@ function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch
 
 const M = DATA.meta, CH = DATA.chapters, BAR = '━━━';
 const last = CH.length;
-function urlOf(no){ return (state.urls[no] || '').trim(); }
-function magUrl(){ return (state.urls.mag || '').trim() || '（マガジンの URL を上の欄に貼ってください）'; }
-function noteTitle(c){
-  if (c.no === 1 && M.firstTitle) return '【' + M.genreLabel + '】' + M.title + '　' + M.firstTitle;
-  return '【' + M.genreLabel + '】' + M.title + '　' + c.heading + (c.no === last ? '（完）' : '');
-}
-function siteTitle(c){ return c.heading + (c.no === last ? '（完）' : ''); }
-function noteBody(c){
-  const head = (c.no === 1 && M.firstHead)
-    ? M.firstHead.join('\\n') + '\\n' + BAR
-    : BAR + '\\n長編ホラー『' + M.title + '』全' + last + '話\\n' + M.hook.join('\\n') + '\\n' + BAR;
-  const parts = [head, c.heading + '\\n' + c.body];
-  if (c.no === last) parts.push(BAR + '\\n（了）\\n最後までお読みいただき、ありがとうございました。');
-  const links = [];
-  if (c.no > 1) links.push('前回の記事\\n' + (urlOf(c.no - 1) || '（' + CH[c.no - 2].heading + ' の URL）'));
-  if (c.no < last) { const n = CH[c.no]; links.push('次回の記事\\n' + (urlOf(n.no) || n.date + ' ' + M.time + ' 公開')); }
-  if (links.length) parts.push(BAR + '\\n' + links.join('\\n'));
-  parts.push(BAR + '\\n' + M.crossPost + '\\n' + M.aiNote);
-  if (M.magLabel) parts.push(BAR + '\\n' + M.magLabel + '\\n' + magUrl());
-  if (c.no === last && M.nextWork) parts.push(BAR + '\\n次回の記事\\n' + M.nextWork);
-  parts.push(BAR + '\\n' + M.noteTags.map(t => '#' + t).join(' '));
-  return parts.join('\\n');
-}
-function siteBody(c){
-  let s = c.body;
-  if (c.no === last) s += '\\n\\n' + BAR + '\\n（了）\\n最後までお読みいただき、ありがとうございました。';
-  return s;
-}
+${makeNovelFormat.toString()}
+const FMT = makeNovelFormat(M, CH, function (no) { return state.urls[no] || ''; });
+const noteTitle = FMT.noteTitle, noteBody = FMT.noteBody, siteTitle = FMT.siteTitle, siteBody = FMT.siteBody;
 
 function copy(text, btn){
   const ok = () => { btn.classList.add('did'); const t = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(() => { btn.textContent = t; btn.classList.remove('did'); }, 1400); };

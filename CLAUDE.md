@@ -53,6 +53,8 @@ Claude は「記事制作」「SNS展開」「サイト更新補助」「素材�
 - ハッシュタグは 10 個：`#小説 #ホラー #現代ホラー` ＋題材のタグ 3〜4 個 ＋ `#イヤミス #後味の悪い話 #連載小説 #創作`
 - 投稿先は note・カクヨム・小説家になろう・エブリスタの 4 つ。全話を書き終えたら `node scripts/novel-pack.js content/novel/<作品slug>` で予約用のコピーページを作り、Artifact として公開してリンクを渡す（各サイトへのログイン・予約は本人が行う）
   - 作品情報は `content/novel/<作品slug>/meta.json`（作品名・あらすじ・タグ・開始日・時刻）
+  - note 用の完成原稿は `node scripts/novel-note.js content/novel/<作品slug>` で `note/NN.txt` と `note/予約表.md` に出す。マガジンと各話の URL は `note-urls.json` に書くと末尾に入る
+  - 第一章は「あらすじ＋第一章」（『善き隣人』の形）、各話の末尾に前回・次回の記事と作品専用マガジンのリンク
 - note のサムネ（1280x670）：Higgsfield で背景画（16:9、右 1/3 に被写体・左は暗い余白）を作り、`npm run note-thumb -- content/novel/<作品slug>/thumb.json` で既存と同じ文字組み（LONG HORROR／作品名／あらすじ 2 行／NAO）を重ねる
 
 ## 投稿のリズム（2 週間で 1 サイクル）
