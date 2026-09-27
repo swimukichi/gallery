@@ -96,8 +96,8 @@ input.url{font:inherit;font-size:13px;width:100%;padding:8px 10px;border:1px sol
   </section>
 
   <section class="card" aria-labelledby="url-h">
-    <h2 id="url-h">note の「次回の記事」リンク</h2>
-    <p class="note">note で全話の下書きを先に作ると、URL が決まります。ここに貼ると、前の話の本文の末尾が、そのURLに置き換わります。空欄のあいだは「○/○ ${meta.time} 公開」と入ります。</p>
+    <h2 id="url-h">note のマガジンと前後の記事リンク</h2>
+    <p class="note">note で全話の下書きを先に作ると、URL が決まります。ここに貼ると、各話の末尾の「前回の記事」「次回の記事」がその URL に置き換わります。いちばん上にはマガジンの URL を貼ってください。空欄のあいだは「○/○ ${meta.time} 公開」と入ります。</p>
     <div id="urls" style="display:grid;gap:6px"></div>
   </section>
 
@@ -123,27 +123,32 @@ function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch
 
 const M = DATA.meta, CH = DATA.chapters, BAR = '━━━';
 const last = CH.length;
-function noteTitle(c){ return '【' + M.genreLabel + '】' + M.title + '　' + c.heading + (c.no === last ? '（完）' : ''); }
-function siteTitle(c){ return c.heading + (c.no === last ? '（完）' : ''); }
-function nextLine(c){
-  if (c.no === last) return M.lastExtra;
-  const n = CH[c.no];
-  const url = (state.urls[n.no] || '').trim();
-  return '次回の記事\\n' + (url || n.date + ' ' + M.time + ' 公開');
+function urlOf(no){ return (state.urls[no] || '').trim(); }
+function magUrl(){ return (state.urls.mag || '').trim() || '（マガジンの URL を上の欄に貼ってください）'; }
+function noteTitle(c){
+  if (c.no === 1 && M.firstTitle) return '【' + M.genreLabel + '】' + M.title + '　' + M.firstTitle;
+  return '【' + M.genreLabel + '】' + M.title + '　' + c.heading + (c.no === last ? '（完）' : '');
 }
+function siteTitle(c){ return c.heading + (c.no === last ? '（完）' : ''); }
 function noteBody(c){
-  const parts = [
-    BAR + '\\n長編ホラー『' + M.title + '』全' + last + '話\\n' + M.hook.join('\\n') + '\\n' + BAR,
-    c.heading + (c.no === last ? '（完）' : '') + '\\n' + c.body,
-    BAR + '\\n' + nextLine(c) + (c.no === 1 && M.firstExtra ? '\\n\\n' + M.firstExtra : ''),
-    BAR + '\\n' + M.crossPost + '\\n' + M.aiNote,
-    BAR + '\\n' + M.noteTags.map(t => '#' + t).join(' ')
-  ];
+  const head = (c.no === 1 && M.firstHead)
+    ? M.firstHead.join('\\n') + '\\n' + BAR
+    : BAR + '\\n長編ホラー『' + M.title + '』全' + last + '話\\n' + M.hook.join('\\n') + '\\n' + BAR;
+  const parts = [head, c.heading + '\\n' + c.body];
+  if (c.no === last) parts.push(BAR + '\\n（了）\\n最後までお読みいただき、ありがとうございました。');
+  const links = [];
+  if (c.no > 1) links.push('前回の記事\\n' + (urlOf(c.no - 1) || '（' + CH[c.no - 2].heading + ' の URL）'));
+  if (c.no < last) { const n = CH[c.no]; links.push('次回の記事\\n' + (urlOf(n.no) || n.date + ' ' + M.time + ' 公開')); }
+  if (links.length) parts.push(BAR + '\\n' + links.join('\\n'));
+  parts.push(BAR + '\\n' + M.crossPost + '\\n' + M.aiNote);
+  if (M.magLabel) parts.push(BAR + '\\n' + M.magLabel + '\\n' + magUrl());
+  if (c.no === last && M.nextWork) parts.push(BAR + '\\n次回の記事\\n' + M.nextWork);
+  parts.push(BAR + '\\n' + M.noteTags.map(t => '#' + t).join(' '));
   return parts.join('\\n');
 }
 function siteBody(c){
   let s = c.body;
-  if (c.no === last) s += '\\n\\n' + BAR + '\\n' + M.lastExtra;
+  if (c.no === last) s += '\\n\\n' + BAR + '\\n（了）\\n最後までお読みいただき、ありがとうございました。';
   return s;
 }
 
@@ -165,6 +170,7 @@ function btn(label, getText){
 const setupRows = [
   ['作品名', M.title],
   ['キャッチコピー', M.catchcopy],
+  ['マガジン説明文（note）', M.magazineDescription || ''],
   ['あらすじ・紹介文', M.synopsis + '\\n\\n' + M.aiNote.replace(/^なお、/, '')],
   ['タグ（カクヨム・エブリスタ）', M.siteTags.join(' ')],
   ['キーワード（なろう）', M.siteTags.filter(t => t !== 'AI本文利用').join(' ')],
@@ -181,6 +187,15 @@ setupRows.forEach(([k, v]) => {
 
 // note URL
 const urls = document.getElementById('urls');
+{
+  const inp = document.createElement('input');
+  inp.className = 'url'; inp.id = 'url-mag'; inp.type = 'url';
+  inp.placeholder = 'マガジン『' + M.title + '（全' + last + '章）』の URL';
+  inp.setAttribute('aria-label', 'マガジンの URL');
+  inp.value = state.urls.mag || '';
+  inp.addEventListener('input', () => { state.urls.mag = inp.value; save(); });
+  urls.append(inp);
+}
 CH.forEach(c => {
   const inp = document.createElement('input');
   inp.className = 'url'; inp.id = 'url-' + c.no; inp.type = 'url';
