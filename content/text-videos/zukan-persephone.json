@@ -1,0 +1,15 @@
+{
+  "style": "zukan",
+  "label": "神話キャラクタ侵食図鑑",
+  "footer": "全3回 note で公開中",
+  "background": "content/assets/zukan-persephone/bg-01.webp",
+  "bgBlur": 1,
+  "slides": [
+    { "text": "花を摘もうとした娘は\n地下へ連れ去られた", "bold": true, "duration": 3, "background": "content/assets/zukan-persephone/clip-01.mp4" },
+    { "text": "ペルセポネ", "sub": "番外編｜冥界の女王", "size": 110, "bold": true, "duration": 2.5 },
+    { "text": "冥界のものを口にした者は、\n冥界に属する。" },
+    { "text": "柘榴の粒は、\n契約を記録する装置になった。", "background": "content/assets/zukan-persephone/bg-02.webp" },
+    { "text": "一粒回るごとに、\n地上と地下が入れ替わる。" },
+    { "text": "全3回 note で公開中\n次回はヘルメス", "sub": "#神話キャラクタ侵食図鑑", "duration": 3.5 }
+  ]
+}
