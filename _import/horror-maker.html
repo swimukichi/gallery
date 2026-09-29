@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>怖話工房｜あなた専用のホラー短編</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#DCDFD9; --paper-2:#CDD2CB; --ink:#1C2321; --ink-soft:#4E5752;
+  --rule:#AEB6AE; --stain:#7A3B2E; --focus:#2F5D62;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#151918; --paper-2:#1E2321; --ink:#CFD5CD; --ink-soft:#8E9891;
+  --rule:#343B38; --stain:#B0604C; --focus:#7FB3B8;
+}}
+:root[data-theme="dark"]{
+  --paper:#151918; --paper-2:#1E2321; --ink:#CFD5CD; --ink-soft:#8E9891;
+  --rule:#343B38; --stain:#B0604C; --focus:#7FB3B8;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+header{padding:24px 0 36px;border-bottom:1px solid var(--rule);margin-bottom:36px}
+h1{font-size:clamp(34px,7vw,56px);font-weight:800;line-height:1.2;margin:0;letter-spacing:.08em}
+.lede{margin:14px 0 0;color:var(--ink-soft)}
+section{margin-bottom:56px}
+section[hidden]{display:none}
+h2{font-size:20px;font-weight:600;margin:0 0 20px;display:flex;gap:12px;align-items:baseline}
+h2 .n{font-size:32px;font-weight:800;color:var(--stain);line-height:1}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-weight:600;margin-bottom:8px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;color:var(--ink);background:transparent;border:1px solid var(--rule);
+  padding:6px 14px;border-radius:2px;cursor:pointer;min-height:40px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.hint{font-size:13px;color:var(--ink-soft);margin:8px 0 0;min-height:1.6em}
+input[type=text],textarea{font:inherit;width:100%;color:var(--ink);background:var(--paper-2);
+  border:1px solid var(--rule);border-radius:2px;padding:10px 12px}
+textarea{min-height:84px;resize:vertical}
+.count{font-size:12px;color:var(--ink-soft);text-align:right}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{font:inherit;font-weight:600;font-size:15px;padding:10px 20px;min-height:44px;border-radius:2px;cursor:pointer;
+  border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.status{margin-top:14px;font-size:14px;color:var(--stain);min-height:1.6em}
+.plot{border-top:1px solid var(--rule)}
+.plot h3{font-size:26px;margin:18px 0 4px;letter-spacing:.05em}
+.plot .logline{color:var(--ink-soft);margin:0 0 16px}
+.plot dl{margin:0;display:grid;grid-template-columns:5em 1fr;gap:6px 14px}
+.plot dt{font-weight:600;color:var(--stain)}
+.plot dd{margin:0}
+.plot ol{margin:14px 0 0;padding-left:1.4em}
+.reader-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.reader{background:var(--paper-2);border:1px solid var(--rule);padding:28px 24px;overflow-x:auto}
+.reader.tate{writing-mode:vertical-rl;height:min(78vh,640px);padding:28px 32px;line-height:2}
+.reader h3{font-size:24px;margin:0 0 1em;letter-spacing:.1em}
+.reader h4{font-size:17px;margin:1.6em 0 .6em;color:var(--stain)}
+.reader.tate h4{margin:0 1.6em 0 .6em}
+.reader p{margin:0;text-indent:1em}
+.reader .blank{height:1em;width:1em}
+.cursor::after{content:"▍";color:var(--stain);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor::after{animation:none}}
+footer{font-size:12px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>怖話工房</h1>
+  <p class="lede">条件を選んで、プロットを確かめて、あなたが読みたいホラー短編を一本つくります。</p>
+</header>
+
+<section id="s1">
+  <h2><span class="n">1</span>好みを選ぶ</h2>
+  <div id="groups"></div>
+  <fieldset>
+    <legend>テーマ（任意・40字まで）</legend>
+    <input type="text" id="theme" maxlength="40" placeholder="例：深夜のコンビニ／妻が別人になっている">
+  </fieldset>
+  <div class="actions">
+    <button class="btn ghost" id="random">おまかせで選ぶ</button>
+    <button class="btn" id="makePlot">プロットを作る</button>
+  </div>
+  <p class="status" id="st1" role="status"></p>
+</section>
+
+<section id="s2" hidden>
+  <h2><span class="n">2</span>プロットを確かめる</h2>
+  <div class="plot" id="plot"></div>
+  <fieldset style="margin-top:28px">
+    <legend>直したいところ（100字まで）</legend>
+    <textarea id="rev" maxlength="100" placeholder="例：幽霊は出さない／もっと現実的に／最後をもっと嫌な感じに"></textarea>
+    <div class="count"><span id="revLeft">残り3回</span></div>
+  </fieldset>
+  <div class="actions">
+    <button class="btn ghost" id="revise">プロットを直す</button>
+    <button class="btn" id="write">この内容で本文を書く</button>
+  </div>
+  <p class="status" id="st2" role="status"></p>
+</section>
+
+<section id="s3" hidden>
+  <h2><span class="n">3</span>読む</h2>
+  <div class="reader-bar">
+    <button class="btn ghost" id="toggleDir">横書きにする</button>
+    <button class="btn ghost" id="stop" hidden>止める</button>
+  </div>
+  <article class="reader tate" id="reader" aria-live="polite"></article>
+  <p class="status" id="st3" role="status"></p>
+  <div class="actions" id="doneActions" hidden>
+    <button class="btn" id="copy">本文をコピー</button>
+    <button class="btn ghost" id="save">テキストで保存</button>
+    <button class="btn ghost" id="restart">条件を変えて作り直す</button>
+  </div>
+</section>
+
+<footer>生成にはあなたのClaudeの利用枠を使います。初回のみ許可の確認が出ます。</footer>
+</div>
+
+<script>
+const GROUPS=[
+ {key:"genre",label:"ホラーの種類",items:["怪談","心霊","人怖","心理ホラー","因習村","ネット怪談","都市伝説","モキュメンタリー","SFホラー","ボディホラー","不条理"]},
+ {key:"setting",label:"舞台",items:["現代日本の街","学校","マンション・団地","病院","田舎の集落","職場","山・海"]},
+ {key:"hero",label:"主人公",items:["男性・社会人","女性・社会人","男子学生","女子学生","子ども","高齢者"]},
+ {key:"pov",label:"語り方",items:["一人称","三人称"]},
+ {key:"style",label:"文章",items:["淡々","文学的","読みやすい","生々しい"]},
+ {key:"fear",label:"怖さの方向",items:["じわじわ","衝撃系","不気味","後味が悪い"]},
+ {key:"ending",label:"結末",items:["救いあり","救いなし","意味が分かると怖い","解釈を残す"]},
+ {key:"length",label:"文字数",items:["2000","4000","6000"],fmt:v=>v+"字"},
+ {key:"chapters",label:"章数",items:["1","3","5"],fmt:v=>v+"章"}
+];
+// 内部だけで使う恐怖設計（ユーザーには見せない）
+const GENRE_DESIGN={
+ "怪談":{src:"土地や物に宿る怪異",show:"伝聞と体験談の語り口",ng:"怪異の正体を理屈で説明しきる"},
+ "心霊":{src:"死者の意思",show:"気配・音・写り込みなど間接描写",ng:"幽霊の姿を最初から詳細に描く"},
+ "人怖":{src:"生きた人間の悪意や執着",show:"善意に見える行動の裏",ng:"超常現象"},
+ "心理ホラー":{src:"主人公自身の認知の歪み",show:"信頼できない語り、日常のずれ",ng:"外部の怪物で解決する"},
+ "因習村":{src:"共同体の掟と信仰",show:"歓迎されすぎる違和感、誰も口にしない場所",ng:"村人を単純な悪役にする"},
+ "ネット怪談":{src:"掲示板・SNS・動画に潜む何か",show:"書き込みやログの断片を挟む",ng:"古い技術描写の誤り"},
+ "都市伝説":{src:"噂として広まるルール",show:"噂の検証が現実になっていく",ng:"有名な都市伝説のそのままの再話"},
+ "モキュメンタリー":{src:"記録された出来事",show:"取材メモ・証言・資料の体裁",ng:"記録の体裁を途中で崩す"},
+ "SFホラー":{src:"技術や科学の暴走",show:"合理的な説明がかえって恐ろしい",ng:"長い設定説明"},
+ "ボディホラー":{src:"身体の変容",show:"感覚描写を積み重ねる",ng:"過剰なスプラッタ"},
+ "不条理":{src:"説明されない世界のルール",show:"誰も疑問に思わないことへの違和感",ng:"最後に理屈で種明かし"}
+};
+const STYLE_NOTE={"淡々":"感情語を抑え、事実を短い文で積む","文学的":"比喩と余白を使い、情景に心理を映す","読みやすい":"平易な語彙、テンポ良く、会話多め","生々しい":"五感と身体感覚を具体的に描く"};
+const FEAR_NOTE={"じわじわ":"小さな違和感を段階的に強める","衝撃系":"山場で一気に反転させる","不気味":"正体を明かさず気配だけで押す","後味が悪い":"読後に嫌な余韻が残る終わり方"};
+
+const state={cond:{},plot:null,revLeft:3,story:null,ctl:null};
+const $=id=>document.getElementById(id);
+
+// --- 条件UI ---
+const groupsEl=$("groups");
+GROUPS.forEach(g=>{
+  const fs=document.createElement("fieldset");
+  const lg=document.createElement("legend");lg.textContent=g.label;fs.append(lg);
+  const box=document.createElement("div");box.className="chips";box.setAttribute("role","group");
+  g.items.forEach(v=>{
+    const b=document.createElement("button");b.type="button";b.className="chip";
+    b.textContent=g.fmt?g.fmt(v):v;b.dataset.v=v;b.setAttribute("aria-pressed","false");
+    b.onclick=()=>pick(g.key,v);box.append(b);
+  });
+  fs.append(box);
+  if(g.key==="genre"){const h=document.createElement("p");h.className="hint";h.id="genreHint";fs.append(h);}
+  fs.dataset.key=g.key;groupsEl.append(fs);
+});
+function pick(key,v){
+  state.cond[key]=v;
+  groupsEl.querySelectorAll(`fieldset[data-key="${key}"] .chip`).forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===v)));
+  if(key==="genre"){const d=GENRE_DESIGN[v];$("genreHint").textContent=d?`恐怖の源：${d.src}`:"";}
+}
+const DEFAULTS={genre:"心理ホラー",setting:"マンション・団地",hero:"女性・社会人",pov:"一人称",style:"淡々",fear:"じわじわ",ending:"救いなし",length:"4000",chapters:"3"};
+Object.entries(DEFAULTS).forEach(([k,v])=>pick(k,v));
+$("random").onclick=()=>GROUPS.forEach(g=>{if(g.key==="length"||g.key==="chapters")return;pick(g.key,g.items[Math.floor(Math.random()*g.items.length)])});
+
+// --- Claude 呼び出し ---
+let sampleP;
+function getSample(){ if(sampleP===undefined) sampleP=(window.claude&&window.claude.use)?window.claude.use("sample"):Promise.resolve(null); return sampleP; }
+function errText(e){
+  const c=e&&e.code;
+  return ({not_granted:"生成が許可されていません。ページを開き直して許可してください。",
+    sampling_disabled:"このアカウントでは生成を使えません。",
+    rate_limited:"利用上限に達しました。少し時間をおいてから試してください。",
+    session_expired:"ログインし直してから試してください。",
+    refused:"この条件では書けませんでした。テーマか修正指示を変えてください。",
+    invalid_json:"プロットの形式が崩れました。もう一度押してください。",
+    cancelled:"止めました。"})[c]||"生成に失敗しました。もう一度押してください。";
+}
+function condText(c){
+  const d=GENRE_DESIGN[c.genre]||{};
+  return `ジャンル：${c.genre}（恐怖の源：${d.src}／見せ方：${d.show}／避けること：${d.ng}）
+舞台：${c.setting}
+主人公：${c.hero}
+語り：${c.pov}
+文体：${c.style}（${STYLE_NOTE[c.style]}）
+怖さ：${c.fear}（${FEAR_NOTE[c.fear]}）
+結末：${c.ending}
+総文字数：約${c.length}字／章数：${c.chapters}章
+テーマ：${c.theme||"指定なし（条件から自由に発想）"}`;
+}
+const PLOT_FORMAT=`次のJSONだけを返す：
+{"title":"作品タイトル","logline":"一行の紹介","intro":"導入","development":"展開","twist":"転換","truth":"真相","ending":"結末","chapters":[{"no":1,"title":"章題","summary":"この章で起きること（2〜3文）"}]}
+chaptersの数は章数と必ず一致させる。`;
+
+async function makePlot(){
+  const s=await getSample(); const st=$("st1");
+  if(!s){st.textContent="このページはclaude.ai上で開いたときに生成できます。";return;}
+  state.cond.theme=$("theme").value.trim();
+  const btn=$("makePlot");btn.disabled=true;st.textContent="プロットを考えています…（数十秒かかります）";
+  try{
+    const p=await s.json(`あなたはホラー短編の構成作家です。以下の条件で、読者が「自分のために書かれた」と感じる独創的なプロットを作ってください。
+【条件】
+${condText(state.cond)}
+【ルール】
+- 結末の条件を必ず守る
+- 真相につながる伏線を導入に仕込む
+- 既存作品の筋をなぞらない
+${PLOT_FORMAT}`,{cache:false});
+    if(!p||!p.title||!Array.isArray(p.chapters))throw{code:"invalid_json"};
+    state.plot=p;state.revLeft=3;renderPlot();st.textContent="";
+    $("s2").hidden=false;$("s3").hidden=true;$("s2").scrollIntoView({behavior:"smooth"});
+  }catch(e){st.textContent=errText(e);}finally{btn.disabled=false;}
+}
+$("makePlot").onclick=makePlot;
+
+function renderPlot(){
+  const p=state.plot,el=$("plot");el.textContent="";
+  const h=document.createElement("h3");h.textContent=p.title;
+  const l=document.createElement("p");l.className="logline";l.textContent=p.logline||"";
+  const dl=document.createElement("dl");
+  [["導入","intro"],["展開","development"],["転換","twist"],["真相","truth"],["結末","ending"]].forEach(([k,f])=>{
+    if(!p[f])return;const dt=document.createElement("dt");dt.textContent=k;const dd=document.createElement("dd");dd.textContent=p[f];dl.append(dt,dd);
+  });
+  const ol=document.createElement("ol");
+  p.chapters.forEach(c=>{const li=document.createElement("li");li.textContent=`${c.title}：${c.summary}`;ol.append(li);});
+  el.append(h,l,dl,ol);
+  $("revLeft").textContent=`残り${state.revLeft}回`;$("revise").disabled=state.revLeft<=0;
+}
+
+$("revise").onclick=async()=>{
+  const ins=$("rev").value.trim();const st=$("st2");
+  if(!ins){st.textContent="直したいところを入力してください。";return;}
+  const s=await getSample();if(!s)return;
+  $("revise").disabled=true;$("write").disabled=true;st.textContent="プロットを直しています…";
+  try{
+    const p=await s.json(`あなたはホラー短編の構成作家です。次のプロットを、読者の修正指示に従って直してください。指示と関係ない部分はなるべく残します。
+【条件】
+${condText(state.cond)}
+【現在のプロット】
+${JSON.stringify(state.plot)}
+【修正指示】
+${ins}
+${PLOT_FORMAT}`,{cache:false});
+    if(!p||!p.title||!Array.isArray(p.chapters))throw{code:"invalid_json"};
+    state.plot=p;state.revLeft--;$("rev").value="";renderPlot();st.textContent="直しました。";
+  }catch(e){st.textContent=errText(e);}
+  finally{$("revise").disabled=state.revLeft<=0;$("write").disabled=false;}
+};
+
+// --- 本文 ---
+function paint(){
+  const r=$("reader");r.textContent="";
+  const h=document.createElement("h3");h.textContent=state.story.title;r.append(h);
+  const multi=state.story.chapters.length>1||Number(state.cond.chapters)>1;
+  state.story.chapters.forEach((t,i)=>{
+    if(multi){const h4=document.createElement("h4");h4.textContent=`第${i+1}章　${state.plot.chapters[i]?.title||""}`;r.append(h4);}
+    t.split(/\n/).forEach(line=>{
+      if(!line.trim()){const b=document.createElement("div");b.className="blank";r.append(b);return;}
+      const p=document.createElement("p");p.textContent=line.trim();r.append(p);
+    });
+  });
+}
+async function write(){
+  const s=await getSample();if(!s)return;
+  const st=$("st3"),n=state.plot.chapters.length,per=Math.round(Number(state.cond.length)/n);
+  state.story={title:state.plot.title,chapters:[]};
+  $("s3").hidden=false;$("doneActions").hidden=true;$("stop").hidden=false;$("write").disabled=true;
+  paint();$("s3").scrollIntoView({behavior:"smooth"});
+  for(let i=0;i<n;i++){
+    const ch=state.plot.chapters[i],prev=i>0?state.story.chapters[i-1].slice(-500):"";
+    st.textContent=`第${i+1}章を書いています（全${n}章）…`;
+    state.story.chapters[i]="";state.ctl=new AbortController();$("reader").classList.add("cursor");
+    try{
+      const {text,truncated}=await s(`あなたはプロのホラー作家です。以下の設定とプロットに従い、第${i+1}章（全${n}章）の本文だけを書いてください。
+【設定】
+${condText(state.cond)}
+【全体プロット】
+${JSON.stringify(state.plot)}
+【この章の要約】
+${ch.title}：${ch.summary}
+【前章の結び】
+${prev||"なし（この章から始まる）"}
+【執筆ルール】
+- 約${per}字（前後15%まで）
+- ${state.cond.pov}で書く。文体は「${state.cond.style}」
+- 章タイトル・見出し・前置き・あとがきは書かない。本文のみ
+- 段落ごとに改行し、会話は「」を使う
+- ${i<n-1?"この章では真相や結末を明かさない":"最終章として結末の条件「"+state.cond.ending+"」を必ず満たして締める"}
+- 恐怖は説明せず、描写で見せる
+- 前章と矛盾させない`,{signal:state.ctl.signal,cache:false,onText:({text})=>{state.story.chapters[i]=text;paint();}});
+      state.story.chapters[i]=text;paint();
+      if(truncated)st.textContent=`第${i+1}章が途中で切れました。`;
+    }catch(e){
+      if(e&&e.text){state.story.chapters[i]=e.text;paint();}
+      st.textContent=errText(e);finish(false);return;
+    }
+  }
+  st.textContent="書き上がりました。";finish(true);
+}
+function finish(ok){
+  $("reader").classList.remove("cursor");$("stop").hidden=true;$("write").disabled=false;
+  $("doneActions").hidden=false;
+  try{localStorage.setItem("horror:last",JSON.stringify({cond:state.cond,plot:state.plot,story:state.story}));}catch(_){}
+}
+$("write").onclick=write;
+$("stop").onclick=()=>state.ctl&&state.ctl.abort();
+$("toggleDir").onclick=()=>{const r=$("reader");const t=r.classList.toggle("tate");$("toggleDir").textContent=t?"横書きにする":"縦書きにする";};
+
+function plain(){
+  const s=state.story;if(!s)return"";
+  return s.title+"\n\n"+s.chapters.map((t,i)=>(s.chapters.length>1?`第${i+1}章　${state.plot.chapters[i]?.title||""}\n\n`:"")+t.trim()).join("\n\n")+"\n";
+}
+$("copy").onclick=async()=>{
+  try{await navigator.clipboard.writeText(plain());$("st3").textContent="コピーしました。";}
+  catch(_){const ta=document.createElement("textarea");ta.value=plain();document.body.append(ta);ta.select();
+    try{document.execCommand("copy");$("st3").textContent="コピーしました。";}catch(__){$("st3").textContent="コピーできませんでした。本文を選択してコピーしてください。";}ta.remove();}
+};
+$("save").onclick=async()=>{
+  const d=window.claude&&window.claude.use?await window.claude.use("downloads"):null;
+  if(!d){$("st3").textContent="この画面では保存できません。コピーを使ってください。";return;}
+  const name=(state.story.title||"horror").replace(/[\\/:*?"<>|\s]/g,"_").slice(0,40)+".txt";
+  try{await d.save({filename:name,data:plain()});$("st3").textContent="保存しました。";}
+  catch(e){if(e&&e.code!=="declined")$("st3").textContent="保存できませんでした。コピーを使ってください。";}
+};
+$("restart").onclick=()=>{$("s2").hidden=true;$("s3").hidden=true;$("s1").scrollIntoView({behavior:"smooth"});};
+
+// 前回の作品を復元
+try{const last=JSON.parse(localStorage.getItem("horror:last")||"null");
+  if(last&&last.story&&last.plot){Object.entries(last.cond||{}).forEach(([k,v])=>{if(k!=="theme")pick(k,v)});$("theme").value=last.cond.theme||"";
+    state.plot=last.plot;state.story=last.story;state.revLeft=0;renderPlot();$("s2").hidden=false;$("s3").hidden=false;paint();$("doneActions").hidden=false;$("st3").textContent="前回の作品を表示しています。";}}catch(_){}
+</script>
+</body>
+</html>
