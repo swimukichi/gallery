@@ -22,6 +22,6 @@ node test/run.mjs             # 自動テスト
 6. 公開用リポジトリ swimukichi/horror-maker に `index.html app.js style.css terms.html worker/` を置き、Pages を有効化
 
 ## コストを抑える設定
-- モデル：`wrangler.toml` の `MODEL`（安くするなら `claude-haiku-4-5`）
-- 上限：IPごと1日3回・全体1日100回（`worker/src/index.js` 冒頭の定数）
+- モデル：`wrangler.toml` の `MODEL`（今は `claude-haiku-4-5`。質を上げるなら `claude-sonnet-5-5`）
+- 上限：IPごと1日3回・全体1日10回（全体は `wrangler.toml` の `DAILY_LIMIT`）
 - 章の本文は `max_tokens = 章あたり文字数 × 2`
