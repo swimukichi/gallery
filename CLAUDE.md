@@ -87,6 +87,10 @@ Claude は「記事制作」「SNS展開」「サイト更新補助」「素材�
 - X：Web 版のポスト作成 → 予約アイコン
 - TikTok：TikTok Studio（PC ブラウザ）→ アップロード → 予約（最大 10 日先）
 
+## 新しいサイト・作品のお披露目
+- 公開する前に「あったらどう思う？」と見せて反応を集める。手順は `/showcase`（記事 note＋アメブロ、X 7 本、スクショ、Codex 用の予約プロンプト）
+- claude.ai のプロトタイプを一般公開版（GitHub Pages＋Cloudflare Worker＋Claude API）にするときは `/proto-app`。手本は `horror-maker/`
+
 ## ファイルと命名
 - 図鑑記事：`content/zukan/NN-<slug>-<回>.md`（NN はテーマ番号、回は 1〜3。例 `04-persephone-1.md`）
 - 小説：`content/novel/<作品slug>/NN.md`（NN は章番号）、設定資料 `content/novel/<作品slug>/_bible.md`
