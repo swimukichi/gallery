@@ -144,7 +144,8 @@ async function takeRateLimit(env, ip) {
   const [a, b] = await Promise.all([env.RATE_KV.get(kIp), env.RATE_KV.get(kAll)]);
   const nIp = Number(a) || 0;
   const nAll = Number(b) || 0;
-  if (nIp >= IP_LIMIT || nAll >= ALL_LIMIT) throw E.rate();
+  const allLimit = Number(env.DAILY_LIMIT) || ALL_LIMIT;
+  if (nIp >= IP_LIMIT || nAll >= allLimit) throw E.rate();
   const opt = { expirationTtl: 3 * 86400 };
   await Promise.all([env.RATE_KV.put(kIp, String(nIp + 1), opt), env.RATE_KV.put(kAll, String(nAll + 1), opt)]);
   // 生成に失敗したときの返却用
@@ -170,6 +171,13 @@ class UpstreamError extends Error {
     this.status = status;
   }
 }
+// 思考（thinking）は出力として課金され、章の max_tokens も食うので切る。
+// Sonnet 5.5 は既定で思考が入るため between_tools で止める。Haiku 4.5 は既定で思考なし。
+function withModel(env, body) {
+  const model = env.MODEL || "claude-sonnet-5-5";
+  const extra = model.startsWith("claude-sonnet-5-5") ? { thinking: { type: "between_tools" } } : {};
+  return { model, ...extra, ...body };
+}
 function callClaude(env, body) {
   return fetch(API_URL, {
     method: "POST",
@@ -178,7 +186,7 @@ function callClaude(env, body) {
       "x-api-key": env.ANTHROPIC_API_KEY,
       "anthropic-version": "2023-06-01",
     },
-    body: JSON.stringify({ model: env.MODEL || "claude-sonnet-5-5", ...body }),
+    body: JSON.stringify(withModel(env, body)),
   });
 }
 function upstreamToHttp(e) {

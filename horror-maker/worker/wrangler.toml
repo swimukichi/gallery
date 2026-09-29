@@ -7,6 +7,8 @@ compatibility_date = "2025-01-01"
 MODEL = "claude-sonnet-5-5"
 # CORS で許可するオリジン（カンマ区切り）
 ALLOWED_ORIGINS = "https://swimukichi.github.io"
+# 全体の1日の上限（プロット作成の回数）。費用の上限の目安になる
+DAILY_LIMIT = "30"
 
 # wrangler kv namespace create RATE_KV で出た id に置き換える
 [[kv_namespaces]]

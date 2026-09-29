@@ -179,6 +179,7 @@ await t("実APIモード: リクエスト形式・JSON抽出・1回だけ再試�
     assert.equal(c.init.headers["anthropic-version"], "2023-06-01");
     assert.equal(c.body.model, "claude-haiku-4-5");
     assert.equal(c.body.max_tokens, 2000);
+    assert.equal(c.body.thinking, undefined, "haikuにthinkingを付けない");
     assert.ok(c.body.messages[0].content.includes("テーマ：深夜のコンビニ"));
     assert.ok(c.body.messages[0].content.includes("恐怖の源：主人公自身の認知の歪み"));
     assert.ok(c.body.messages[0].content.includes("世界観：侵食（バイオメカニカル）"));
@@ -221,6 +222,7 @@ await t("実APIモード: chapterのSSE中継・max_tokens・前章の結び・�
       token = ev.token;
     }
     assert.equal(seen[0].stream, true);
+    assert.deepEqual(seen[0].thinking, { type: "between_tools" });
     assert.equal(seen[0].max_tokens, Math.round(2000 / 3) * 2);
     assert.ok(seen[0].messages[0].content.includes("なし（この章から始まる）"));
     assert.ok(seen[1].messages[0].content.includes("本文1のつづき"), "前章の結びが入っていない");
