@@ -8,7 +8,7 @@ import { FakeKV } from "./fake-kv.mjs";
 const ORIGIN = "https://swimukichi.github.io";
 const ctx = { waitUntil() {} };
 const mkEnv = (extra = {}) => ({ MOCK: "1", HMAC_SECRET: "s3cret", ALLOWED_ORIGINS: ORIGIN, RATE_KV: new FakeKV(), ...extra });
-const OPT = { genre: "shinri", setting: "apartment", hero: "woman_worker", pov: "first", style: "tantan", fear: "jiwajiwa", ending: "no_salvation", length: "2000", chapters: "3" };
+const OPT = { world: "shinshoku", genre: "shinri", setting: "apartment", hero: "woman_worker", pov: "first", style: "tantan", fear: "jiwajiwa", ending: "no_salvation", length: "2000", chapters: "3" };
 let ipn = 0;
 async function call(env, path, body, { ip = "1.1.1.1", origin = ORIGIN, raw } = {}) {
   const headers = { "content-type": "application/json", "CF-Connecting-IP": ip };
@@ -181,6 +181,7 @@ await t("実APIモード: リクエスト形式・JSON抽出・1回だけ再試�
     assert.equal(c.body.max_tokens, 2000);
     assert.ok(c.body.messages[0].content.includes("テーマ：深夜のコンビニ"));
     assert.ok(c.body.messages[0].content.includes("恐怖の源：主人公自身の認知の歪み"));
+    assert.ok(c.body.messages[0].content.includes("世界観：侵食（バイオメカニカル）"));
   } finally { globalThis.fetch = realFetch; }
 });
 await t("実APIモード: 2回失敗で502・生レスポンスを返さない・回数を返却", async () => {

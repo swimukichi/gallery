@@ -2,6 +2,15 @@
 // 選択肢ID → 内部の文言（恐怖設計など）への対応はすべてこのファイルに閉じる。
 
 export const OPTIONS = {
+  world: {
+    real: { label: "現実", note: "現実の世界のルールのまま。怪異や狂気は、日常の手触りの中で起こす" },
+    shinshoku: {
+      label: "侵食（バイオメカニカル）",
+      note: "身体・機械・日用品・植物の境目が、少しずつ溶け合っていく世界。金属・配線・管・菌糸のような質感が、生き物や生活の品に静かに滲み、癒着し、脈打つ",
+      show: "変化は一度に起こさず、触感・音・温度・においの小さな違和感から段階的に進める。侵食される側の日常は最後まで普通に続いている",
+      ng: "ロボットやサイボーグの戦闘もの、侵食の仕組みの長い説明、過剰なスプラッタ",
+    },
+  },
   genre: {
     kaidan: { label: "怪談", src: "土地や物に宿る怪異", show: "伝聞と体験談の語り口", ng: "怪異の正体を理屈で説明しきる" },
     shinrei: { label: "心霊", src: "死者の意思", show: "気配・音・写り込みなど間接描写", ng: "幽霊の姿を最初から詳細に描く" },
@@ -135,8 +144,11 @@ export function condText(opt, themeId) {
   const st = OPTIONS.style[opt.style];
   const fr = OPTIONS.fear[opt.fear];
   const L = (k) => OPTIONS[k][opt[k]].label;
+  const w = OPTIONS.world[opt.world];
+  const worldLine = w.show ? `世界観：${w.label}（${w.note}／見せ方：${w.show}／避けること：${w.ng}）` : `世界観：${w.label}（${w.note}）`;
   const theme = THEMES[themeId] || "指定なし（条件から自由に発想）";
-  return `ジャンル：${g.label}（恐怖の源：${g.src}／見せ方：${g.show}／避けること：${g.ng}）
+  return `${worldLine}
+ジャンル：${g.label}（恐怖の源：${g.src}／見せ方：${g.show}／避けること：${g.ng}）
 舞台：${L("setting")}
 主人公：${L("hero")}
 語り：${L("pov")}

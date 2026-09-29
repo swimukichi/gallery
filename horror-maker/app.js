@@ -4,6 +4,7 @@ const WORKER_URL = "http://localhost:8787";
 
 // <options> 表示名とIDのみ（内容の定義は worker/src/prompts.js）
 const GROUPS = [
+  { key: "world", label: "世界観", items: [["real", "現実"], ["shinshoku", "侵食（バイオメカニカル）"]] },
   { key: "genre", label: "ホラーの種類", items: [["kaidan", "怪談"], ["shinrei", "心霊"], ["hitokowa", "人怖"], ["shinri", "心理ホラー"], ["inshu", "因習村"], ["netto", "ネット怪談"], ["toshi", "都市伝説"], ["mokyu", "モキュメンタリー"], ["sf", "SFホラー"], ["body", "ボディホラー"], ["fujori", "不条理"]] },
   { key: "setting", label: "舞台", items: [["town", "現代日本の街"], ["school", "学校"], ["apartment", "マンション・団地"], ["hospital", "病院"], ["village", "田舎の集落"], ["office", "職場"], ["mountain_sea", "山・海"]] },
   { key: "hero", label: "主人公", items: [["man_worker", "男性・社会人"], ["woman_worker", "女性・社会人"], ["boy_student", "男子学生"], ["girl_student", "女子学生"], ["child", "子ども"], ["elder", "高齢者"]] },
@@ -58,7 +59,7 @@ THEMES.forEach(([id, label]) => {
   o.textContent = label;
   $("theme").append(o);
 });
-const DEFAULTS = { genre: "shinri", setting: "apartment", hero: "woman_worker", pov: "first", style: "tantan", fear: "jiwajiwa", ending: "no_salvation", length: "4000", chapters: "3" };
+const DEFAULTS = { world: "real", genre: "shinri", setting: "apartment", hero: "woman_worker", pov: "first", style: "tantan", fear: "jiwajiwa", ending: "no_salvation", length: "4000", chapters: "3" };
 Object.entries(DEFAULTS).forEach(([k, v]) => pick(k, v));
 $("random").onclick = () => {
   GROUPS.forEach((g) => {
