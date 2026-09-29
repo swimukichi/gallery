@@ -73,3 +73,22 @@ footer{font-size:12px;color:var(--ink-soft);border-top:1px solid var(--rule);pad
 .about h2:not(:first-child){margin-top:18px}
 .about ul{margin:0;padding-left:1.3em}
 .about p{margin:0}
+html{scroll-behavior:smooth}
+.nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:-12px 0 28px;font-size:14px}
+.nav a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule);padding:6px 0;min-height:32px}
+.nav a:hover{color:var(--ink);border-color:var(--ink)}
+h2.plain{display:block;border-top:1px solid var(--rule);padding-top:28px}
+.sec-lede{margin:-8px 0 20px}
+.note-small{font-size:13px;color:var(--ink-soft)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{border:1px solid var(--rule);background:var(--paper-2);padding:18px 20px}
+.card h3{font-size:22px;margin:4px 0 8px;letter-spacing:.06em}
+.card p{margin:0 0 14px;font-size:15px}
+.card .tag{font-size:12px;color:var(--stain);margin:0}
+.card .btn{display:inline-block;text-decoration:none;font-size:14px;padding:8px 16px;min-height:40px}
+.road{list-style:none;margin:0;padding:0}
+.road li{border-top:1px solid var(--rule);padding:14px 0;font-size:15px}
+.road li:last-child{border-bottom:1px solid var(--rule)}
+.road b{display:block;font-size:16px;margin-bottom:2px}
+.road .st{float:right;font-size:12px;color:var(--stain);border:1px solid var(--stain);padding:0 8px;margin:2px 0 0 10px;line-height:1.7}
+#make{scroll-margin-top:12px}
