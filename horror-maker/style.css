@@ -57,7 +57,7 @@ footer a{color:inherit}
 .plot ol{margin:14px 0 0;padding-left:1.4em}
 .reader-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
 .reader{background:var(--paper-2);border:1px solid var(--rule);padding:28px 24px;overflow-x:auto}
-.reader.tate{writing-mode:vertical-rl;height:min(78vh,640px);padding:28px 32px;line-height:2}
+.reader.tate{writing-mode:vertical-rl;width:100%;max-width:100%;height:min(78vh,640px);padding:28px 32px;line-height:2}
 .reader h3{font-size:24px;margin:0 0 1em;letter-spacing:.1em}
 .reader h4{font-size:17px;margin:1.6em 0 .6em;color:var(--stain)}
 .reader.tate h4{margin:0 1.6em 0 .6em}
