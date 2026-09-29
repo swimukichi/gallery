@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>怖話工房｜あなた専用のホラー短編</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>怖話工房</h1>
+  <p class="lede">条件を選んで、プロットを確かめて、あなたが読みたいホラー短編を一本つくります。</p>
+</header>
+
+<section id="s1">
+  <h2><span class="n">1</span>好みを選ぶ</h2>
+  <div id="groups"></div>
+  <fieldset>
+    <legend>テーマ（任意）</legend>
+    <select id="theme" aria-label="テーマ"></select>
+  </fieldset>
+  <div class="actions">
+    <button class="btn ghost" id="random">おまかせで選ぶ</button>
+    <button class="btn" id="makePlot">プロットを作る</button>
+  </div>
+  <p class="status" id="st1" role="status"></p>
+</section>
+
+<section id="s2" hidden>
+  <h2><span class="n">2</span>プロットを確かめる</h2>
+  <div class="plot" id="plot"></div>
+  <fieldset style="margin-top:28px">
+    <legend>直したいところ</legend>
+    <div class="chips revs" id="revs" role="group"></div>
+    <div class="count"><span id="revLeft">残り3回</span></div>
+  </fieldset>
+  <div class="actions">
+    <button class="btn" id="write">この内容で本文を書く</button>
+  </div>
+  <p class="status" id="st2" role="status"></p>
+</section>
+
+<section id="s3" hidden>
+  <h2><span class="n">3</span>読む</h2>
+  <div class="reader-bar">
+    <button class="btn ghost" id="toggleDir">横書きにする</button>
+    <button class="btn ghost" id="stop" hidden>止める</button>
+  </div>
+  <article class="reader tate" id="reader" aria-live="polite"></article>
+  <p class="status" id="st3" role="status"></p>
+  <div class="actions" id="doneActions" hidden>
+    <button class="btn" id="copy">本文をコピー</button>
+    <button class="btn ghost" id="save">テキストで保存</button>
+    <button class="btn ghost" id="restart">条件を変えて作り直す</button>
+  </div>
+</section>
+
+<footer>AIが生成するフィクションです。1日の利用回数に上限があります。<a href="terms.html">利用上の注意</a></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

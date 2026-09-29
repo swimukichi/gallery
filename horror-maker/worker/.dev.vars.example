@@ -1,0 +1,6 @@
+# cp .dev.vars.example .dev.vars（wrangler dev 用。コミットしない）
+MOCK=1
+HMAC_SECRET=local-dev-secret
+ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+# 実APIを試すときだけ MOCK を消して次を入れる
+# ANTHROPIC_API_KEY=sk-ant-...

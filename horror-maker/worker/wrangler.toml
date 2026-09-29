@@ -1,0 +1,14 @@
+name = "horror-maker"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# 使うモデル。コストを抑えるなら claude-haiku-4-5 に変更
+MODEL = "claude-sonnet-5-5"
+# CORS で許可するオリジン（カンマ区切り）
+ALLOWED_ORIGINS = "https://swimukichi.github.io"
+
+# wrangler kv namespace create RATE_KV で出た id に置き換える
+[[kv_namespaces]]
+binding = "RATE_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
