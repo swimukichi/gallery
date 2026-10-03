@@ -1,53 +1,70 @@
-# 『不在票』PC のブラウザ作業（Claude Code × Claude in Chrome 用）
+# 『不在票』PC のブラウザ作業：マガジン作成から 4 サイトの予約まで（Claude Code × Claude in Chrome 用）
 
-PC で `claude --chrome` を起動した Claude Code が読んで実行する手順書。ユーザーの Chrome（note・小説家になろう・エブリスタ・Higgsfield にログイン済み）を操作する。
-今回は**作品の器を作るところまで**（本文はまだ無い）。各話の下書き・予約は、本文ができてから『柘榴』の手順書（`content/novel/zakuro/pc-browser-task.md` ステップ 3〜5）と同じ流れで行う。
+PC で、このリポジトリのフォルダを開いて `claude --chrome` を起動した Claude Code が読んで実行する手順書。
+ユーザーの Chrome（note・カクヨム・小説家になろう・エブリスタにログイン済み）を操作して、**マガジン作成から 13 話×4 サイトの予約まで全部**行う。ユーザーは途中で手を動かさない。
+
+## 最初に
+```
+git fetch origin claude/funny-brown-7x3p1l && git checkout claude/funny-brown-7x3p1l && git pull
+npm install
+```
 
 ## 守ること
-- 公開ボタンは押さない。作品は「非公開」「下書き」で止める
-- 各ステップの最後に画面のスクショを撮って報告し、ユーザーの OK をもらってから次へ
-- ログイン画面や CAPTCHA が出たら止めて、ユーザーに操作してもらう
-- 既存の作品・記事・マガジンは編集も削除もしない（読むだけ）
-- カクヨムは対象外（ユーザーが行う）
+- **公開ボタンは押さない。** すべて予約（予約できないサイトは下書き保存）で止める
+- ユーザーに確認を求めるのは 2 回だけ：①note 第一章の予約画面ができたとき（書式の確認）、②全部終わったとき。それ以外は止まらずに進める
+- ログイン画面・CAPTCHA・二段階認証が出たときだけ止めて、ユーザーに操作してもらう
+- 既存の作品・記事・マガジンは編集も削除もしない
 - 文面はリポジトリのファイルからそのまま使い、書き換えない
+- 予約日時はすべて日本時間。第1話 2026-10-12 21:30 から 1 日 1 話、第13話 2026-10-24 21:30
 
-## 使うファイル
-- 作品情報：`content/novel/fuzaihyo/meta.json`（catchcopy・intro・synopsis・magazineDescription・siteTags・noteTags）
-- 設定の表：`content/novel/fuzaihyo/posting.md`
-- サムネ：`content/novel/fuzaihyo/thumb.png`（無地版、作成済み）、`thumb.json`
+## 使うファイル（`content/novel/fuzaihyo/`）
+| 用途 | ファイル |
+|---|---|
+| 作品情報 | `meta.json`（title・catchcopy・intro・synopsis・magazineDescription・noteTags・siteTags） |
+| サイトごとの設定 | `posting.md` の「カクヨム・小説家になろう・エブリスタ」の表 |
+| note 原稿 | `note/01.txt`〜`13.txt`（1 行目がタイトル、3 行目から本文） |
+| 他サイトの本文 | `01.md`〜`13.md`（1 行目が「# 第一章　三区」、2 行目以降が本文） |
+| サムネ | `thumb.png`（1280x670） |
+| URL の記録 | `note-urls.json`（無ければ作る） |
 
-## ステップ 1：（任意）Higgsfield で写真版のサムネ
-1. `posting.md`「サムネ」のすぐ使う版のプロンプトで 16:9 を生成し、候補をユーザーに選んでもらう
-2. 選んだ画像を `content/assets/novel-fuzaihyo/thumb-bg.webp` に保存（sharp で webp・横 1920px・品質 85）
-3. `npm run note-thumb -- content/novel/fuzaihyo/thumb.json` で `thumb.png` を作り直し、ユーザーに見せる
-- 写真版を使わないなら、このステップは飛ばす
-
-## ステップ 2：note でマガジンを作る
+## ステップ 1：note のマガジン
 1. https://note.com/swi0801 でマガジンを新しく作る
-   - 名前：`不在票（全13章）`
-   - 説明文：`meta.json` の `magazineDescription`
-   - 見出し画像：`content/novel/fuzaihyo/thumb.png`
-   - 無料マガジン
-2. URL を `content/novel/fuzaihyo/note-urls.json` に `{ "mag": "https://note.com/swi0801/m/..." }` で保存
+   - 名前：`不在票（全13章）`／説明文：`meta.json` の `magazineDescription`／見出し画像：`thumb.png`／無料
+2. URL を `note-urls.json` の `"mag"` に書く
 
-## ステップ 3：小説家になろう
-1. 『柘榴』の作品設定を開いて読むだけにし、同じ形で新しい作品を作る（非公開・下書き）
-   - 作品名：`不在票`
-   - あらすじ：`meta.json` の `synopsis`
-   - キーワード：`siteTags` の 8 個
-   - ジャンル・残酷描写・生成 AI の表記：『柘榴』と同じ
-2. 作品ページの URL を `note-urls.json` に `"narou"` で保存
+## ステップ 2：note の 13 話
+1. `note/01.txt`〜`13.txt` の順に、テキスト記事の下書きを作る（タイトル＝1 行目、本文＝3 行目以降、見出し画像＝`thumb.png`）
+2. 各下書きの URL を `note-urls.json` の `"1"`〜`"13"` に書く
+3. `node scripts/novel-note.js content/novel/fuzaihyo` を実行し、前回・次回の記事とマガジンの URL が入った原稿を作り直す
+4. 作り直した本文で、13 本の下書きの本文を上書きする
+5. 各下書きの「公開に進む」で次を設定して**予約**する
+   - ハッシュタグ：`noteTags` の 10 個
+   - マガジン：`不在票（全13章）` に追加
+   - 予約日時：`note/予約表.md` のとおり
+   - 第一章の予約画面ができた時点で、ユーザーに 1 回だけ確認をとる
 
-## ステップ 4：エブリスタ
-1. 『柘榴』の作品設定を読むだけにし、同じ形で新しい作品を作る（非公開・下書き）
-   - 作品名：`不在票`
-   - キャッチコピー：`catchcopy`
-   - あらすじ：`synopsis`
-   - タグ：`siteTags`
-   - ジャンル・年齢制限・生成 AI の表記：『柘榴』と同じ
-2. 作品ページの URL を `note-urls.json` に `"estar"` で保存
-- 文字数が上限を超えると言われたら、`intro`（短い版）に差し替えてユーザーに伝える
+## ステップ 3：カクヨム
+1. 新しい作品を作る
+   - タイトル：`不在票`／キャッチコピー：`catchcopy`／紹介文：`intro`／ジャンル：ホラー／タグ：`siteTags`
+   - 残酷描写・暴力描写・性描写：なし。生成 AI の利用は「あり」（既存作『柘榴』の設定を読んで同じにする）
+2. エピソードを 13 本作る
+   - エピソード名：`01.md` の 1 行目から「# 」を除いたもの（第13話は末尾に「（完）」）
+   - 本文：2 行目以降。第13話だけ末尾に「━━━」「（了）」「最後までお読みいただき、ありがとうございました。」
+   - 予約公開：上の日時
+3. 作品ページの URL を `note-urls.json` の `"kakuyomu"` に書く
+
+## ステップ 4：小説家になろう
+1. 新しい作品を作る（『柘榴』の作品設定を読んで同じ形に）
+   - タイトル：`不在票`／あらすじ：`synopsis`／キーワード：`siteTags`／ジャンル：ホラー〔文芸〕／残酷な描写：なし
+2. 13 話を、ステップ 3 と同じ話タイトル・本文・日時で予約掲載する
+3. URL を `"narou"` に書く
+
+## ステップ 5：エブリスタ
+1. 新しい作品を作る（『柘榴』と同じ形に）
+   - タイトル：`不在票`／キャッチコピー：`catchcopy`／あらすじ：`synopsis`（文字数オーバーなら `intro`）／タグ：`siteTags`
+2. 13 話を、同じ話タイトル・本文・日時で予約する。予約機能が無ければ下書き保存して、報告にそう書く
+3. URL を `"estar"` に書く
 
 ## 最後に
-- `note-urls.json`・`thumb.png` などの変更をコミットして push
-- 作った一覧（サイト・作品名・状態・URL）を報告する
+- `git add content/novel/fuzaihyo && git commit -m "『不在票』4サイト予約完了" && git push`
+- ユーザーへの報告（2 回目の確認）：サイト・話・予約日時・URL の一覧と、予約できずに下書きにしたもの
